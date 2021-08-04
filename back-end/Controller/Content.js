@@ -27,6 +27,25 @@ exports.createContent = asyncHandler(async (req, res, next) => {
   });
 });
 
+/**
+ * @desc : All Content
+ * @route : Get /api/content
+ * @access : public
+ */
+exports.GetsContent = asyncHandler(async (req, res, next) => {
+  const temp = await Contents.find();
+
+  const contents = temp.map((content) => {
+    content.image = `${process.env.IMG_SERVER}${content.image}`;
+    return content;
+  });
+
+  res.status(200).json({
+    success: true,
+    contents: contents,
+  });
+});
+
 // fs.unlink("./smple2.txt", err => {
 
 //   if(err.code == 'ENOENT'){
