@@ -5,6 +5,7 @@ const path = require("path");
 const connectDB = require("./db/db");
 const colors = require("colors");
 const cors = require("cors");
+const errorHandler = require("./middleware/error");
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //Router Setting
 
+app.use(errorHandler);
 //Server Setting
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
