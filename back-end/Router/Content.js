@@ -6,6 +6,7 @@ const {
   GetContent,
   PutContent,
   DeleteContent,
+  LikeContent,
 } = require("../Controller/Content");
 
 const router = express.Router();
@@ -23,6 +24,7 @@ const upload = multer({ storage: fileStorageEngine });
 router.post("/", upload.single("image"), createContent);
 router.get("/", GetsContent);
 router.get("/:id", GetContent);
+router.put("/:id/like", LikeContent);
 router.put("/:id", upload.single("image"), PutContent);
 router.delete("/:id/:user_nickname", DeleteContent);
 module.exports = router;

@@ -117,9 +117,19 @@ exports.DeleteContent = asyncHandler(async (req, res, next) => {
   });
 });
 
-// fs.unlink("./smple2.txt", err => {
-
-//   if(err.code == 'ENOENT'){
-//       console.log("파일 삭제 Error 발생");
-//   }
-// });
+/**
+ * @desc : One Content Like
+ * @route : put /api/content/:id/like
+ * @access : public
+ */
+exports.LikeContent = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const content = await Contents.findById(id);
+  content.like = content.like + 1;
+  await content.save();
+  content.image = `${process.env.IMG_SERVER}${content.image}`;
+  res.status(200).json({
+    success: true,
+    content: content,
+  });
+});
