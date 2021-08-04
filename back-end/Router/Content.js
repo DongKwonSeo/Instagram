@@ -1,6 +1,12 @@
 const express = require("express");
 const multer = require("multer");
-const { createContent, GetsContent } = require("../Controller/Content");
+const {
+  createContent,
+  GetsContent,
+  GetContent,
+  PutContent,
+  DeleteContent,
+} = require("../Controller/Content");
 
 const router = express.Router();
 const fileStorageEngine = multer.diskStorage({
@@ -16,4 +22,7 @@ const upload = multer({ storage: fileStorageEngine });
 
 router.post("/", upload.single("image"), createContent);
 router.get("/", GetsContent);
+router.get("/:id", GetContent);
+router.put("/:id", upload.single("image"), PutContent);
+router.delete("/:id/:user_nickname", DeleteContent);
 module.exports = router;

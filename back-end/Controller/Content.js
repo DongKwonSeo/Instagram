@@ -45,6 +45,77 @@ exports.GetsContent = asyncHandler(async (req, res, next) => {
     contents: contents,
   });
 });
+/**
+ * @desc : One Get Content
+ * @route : Get /api/content/:id
+ * @access : public
+ */
+exports.GetContent = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const content = await Contents.findById(id);
+
+  content.image = `${process.env.IMG_SERVER}${content.image}`;
+  res.status(200).json({
+    success: true,
+    content: content,
+  });
+});
+
+/**
+ * @desc : One Update Content
+ * @route : PUT /api/content/:id
+ * @access : public
+ */
+exports.PutContent = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const { user_nickname, text } = req.body;
+  const file = req.file;
+  const content = await Contents.findById(id);
+
+  if (user_nickname != content.user_nickname) {
+    return next(new ErrorResponse("해당 글의 소유자가 아닙니다.", 403));
+  }
+
+  content.text = text;
+  content.user_nickname = user_nickname;
+  content.updatedAt = getCurrentDate("currentTime");
+  if (file) {
+    fs.unlink(`./public/upload/${content.image}`, (err) => {
+      if (err) {
+        console.log("파일 삭제 Error 발생");
+      }
+    });
+    content.image = file.filename;
+  }
+
+  await content.save();
+  content.image = `${process.env.IMG_SERVER}${content.image}`;
+  res.status(200).json({
+    success: true,
+    content: content,
+  });
+});
+/**
+ * @desc : One Delete Content
+ * @route : delete /api/content/:id/:user_nickname
+ * @access : public
+ */
+exports.DeleteContent = asyncHandler(async (req, res, next) => {
+  const { id, user_nickname } = req.params;
+  const content = await Contents.findById(id);
+  if (user_nickname != content.user_nickname) {
+    return next(new ErrorResponse("해당 글의 소유자가 아닙니다.", 403));
+  }
+  fs.unlink(`./public/upload/${content.image}`, (err) => {
+    if (err) {
+      console.log("파일 삭제 Error 발생");
+    }
+  });
+  content.remove();
+  res.status(200).json({
+    success: true,
+  });
+});
 
 // fs.unlink("./smple2.txt", err => {
 
