@@ -18,9 +18,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
-
 //Router Setting
-
+app.use("/api/content", require("./Router/Content"));
 app.use(errorHandler);
 //Server Setting
 const PORT = process.env.PORT || 5000;
