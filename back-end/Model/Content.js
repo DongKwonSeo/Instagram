@@ -34,4 +34,10 @@ const ContentSchema = new mongoose.Schema(
   }
 );
 
+ContentSchema.pre("remove", async function (next) {
+  await this.model("comments").deleteMany({
+    content: this._id,
+  });
+  next();
+});
 module.exports = mongoose.model("contents", ContentSchema);
