@@ -41,13 +41,27 @@ exports.getsComments = asyncHandler(async (req, res, next) => {
  * @route : Get /api/Comment/:id
  * @access : public
  */
-exports.getComment = asyncHandler(async (req, res, next) => {});
+exports.getComment = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const comment = await Comments.findById(id);
+  res.status(200).json({ success: true, comment: comment });
+});
 /**
  * @desc : Select One Comment Put
  * @route : put /api/Comment/:id
  * @access : public
  */
-exports.putComment = asyncHandler(async (req, res, next) => {});
+exports.putComment = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const { comment_text, user_nickname } = req.body;
+  const comment = await Comments.findById(id);
+  if (user_nickname != comment.user_nickname) {
+    return next(new ErrorResponse("댓글 주인이 아닙니다.", 403));
+  }
+  comment.comment_text = comment_text;
+  await comment.save();
+  res.status(200).json({ success: true, comment: comment });
+});
 
 /**
  * @desc : Select One Comment Delete
