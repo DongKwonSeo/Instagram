@@ -40,4 +40,11 @@ ContentSchema.pre("remove", async function (next) {
   });
   next();
 });
+
+ContentSchema.virtual("comments", {
+  ref: "comments",
+  localField: "_id",
+  foreignField: "content",
+  justOne: false,
+});
 module.exports = mongoose.model("contents", ContentSchema);

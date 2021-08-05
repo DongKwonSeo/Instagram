@@ -33,7 +33,7 @@ exports.createContent = asyncHandler(async (req, res, next) => {
  * @access : public
  */
 exports.GetsContent = asyncHandler(async (req, res, next) => {
-  const temp = await Contents.find();
+  const temp = await Contents.find().populate({ path: "comments" });
 
   const contents = temp.map((content) => {
     content.image = `${process.env.IMG_SERVER}${content.image}`;
@@ -52,7 +52,7 @@ exports.GetsContent = asyncHandler(async (req, res, next) => {
  */
 exports.GetContent = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  const content = await Contents.findById(id);
+  const content = await Contents.findById(id).populate({ path: "comments" });
 
   content.image = `${process.env.IMG_SERVER}${content.image}`;
   res.status(200).json({
@@ -70,7 +70,7 @@ exports.PutContent = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const { user_nickname, text } = req.body;
   const file = req.file;
-  const content = await Contents.findById(id);
+  const content = await Contents.findById(id).populate({ path: "comments" });
 
   if (user_nickname != content.user_nickname) {
     return next(new ErrorResponse("해당 글의 소유자가 아닙니다.", 403));

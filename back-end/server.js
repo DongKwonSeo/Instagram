@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 //Router Setting
 app.use("/api/content", require("./Router/Content"));
+app.use("/api/comment", require("./Router/Comment"));
 app.use(errorHandler);
 //Server Setting
 const PORT = process.env.PORT || 5000;
