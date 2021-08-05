@@ -65,7 +65,15 @@ exports.putComment = asyncHandler(async (req, res, next) => {
 
 /**
  * @desc : Select One Comment Delete
- * @route : delete /api/Comment/:id
+ * @route : delete /api/Comment/:id/:user_nickname
  * @access : public
  */
-exports.deleteComment = asyncHandler(async (req, res, next) => {});
+exports.deleteComment = asyncHandler(async (req, res, next) => {
+  const { id, user_nickname } = req.params;
+  const comment = await Comments.findById(id);
+  if (user_nickname.toString() != comment.user_nickname) {
+    return next(new ErrorResponse("댓글 주인이 아닙니다.", 403));
+  }
+  await comment.remove();
+  res.status(200).json({ success: true });
+});
