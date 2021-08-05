@@ -31,21 +31,27 @@ exports.createComment = asyncHandler(async (req, res, next) => {
  * @route : Get /api/Comment
  * @access : public
  */
+exports.getsComments = asyncHandler(async (req, res, next) => {
+  const comments = await Comments.find();
+  res.status(200).json({ success: true, comments: comments });
+});
 
 /**
  * @desc : Select One Comment
  * @route : Get /api/Comment/:id
  * @access : public
  */
-
+exports.getComment = asyncHandler(async (req, res, next) => {});
 /**
  * @desc : Select One Comment Put
  * @route : put /api/Comment/:id
  * @access : public
  */
+exports.putComment = asyncHandler(async (req, res, next) => {});
 
 /**
  * @desc : Select One Comment Delete
  * @route : delete /api/Comment/:id
  * @access : public
  */
+exports.deleteComment = asyncHandler(async (req, res, next) => {});
