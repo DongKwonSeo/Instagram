@@ -1,9 +1,14 @@
 import React from "react";
+import Content from "./content/content";
+import FeedImg from "./feedImg";
+import FeedHeader from "./header";
 
 const FeedList = () => {
   return (
-    <div>
-      <h1>피드 리스트 </h1>
+    <div className="FeedList">
+      <FeedHeader />
+      <FeedImg />
+      <Content />
     </div>
   );
 };

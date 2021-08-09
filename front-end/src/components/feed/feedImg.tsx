@@ -1,9 +1,11 @@
 import React from "react";
 
 const FeedImg = () => {
-  return <div>
-      <h1>이미지</h1>
-  </div>;
+  return (
+    <>
+      <img className="feedImg" src="../imgs/feedimg.jpeg" alt="피드 이미지" />
+    </>
+  );
 };
 
 export default FeedImg;
