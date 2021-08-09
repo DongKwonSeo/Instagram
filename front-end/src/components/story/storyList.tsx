@@ -1,9 +1,10 @@
 import React from "react";
+import StoryItem from "./storyItem";
 
 const StoryList = () => {
   return (
-    <div>
-      <h1>스토리 리스트 </h1>
+    <div className="storyList">
+      <StoryItem />
     </div>
   );
 };
