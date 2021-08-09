@@ -1,0 +1,27 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fafafa;
+  border: 1px solid #000;
+}
+
+// Header
+
+.header {
+  background: white;
+  border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  &__wrap {
+    margin: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__ul {
+    display: flex;
+  }
+  &__ul li {
+    margin-right: 7px;
+  }
+  &__ul li:last-child {
+    margin-right: 0;
+  }
+}
