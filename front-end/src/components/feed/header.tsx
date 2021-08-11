@@ -9,3 +9,4 @@ const FeedHeader = () => {
 };
 
 export default FeedHeader;
+

@@ -9,7 +9,7 @@ const StoryItem = () => {
           src="../storyItem.jpeg"
           alt="스토리 사진 "
         />
-        <p className="storyItem__name">cake.english</p>
+        <span className="storyItem__name">cake.english</span>
       </div>
     </div>
   );
