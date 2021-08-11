@@ -1,0 +1,108 @@
+@import "./variables.scss";
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fafafa;
+  border: 1px solid #000;
+}
+
+// Header
+.header {
+  background: white;
+  border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  &__wrap {
+    margin: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__ul {
+    display: flex;
+  }
+  &__ul li {
+    margin-right: 7px;
+  }
+  &__ul li:last-child {
+    margin-right: 0;
+  }
+}
+
+// stort
+.storyList {
+  background: $white;
+}
+
+// storyItem
+.storyItem {
+  width: 56px;
+  &__wrap {
+    padding-left: 8px;
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  &__name {
+    text-align: center;
+    margin-top: 8px;
+    font-size: $storyName;
+    color: $storyNameColor;
+  }
+}
+
+// FeedList
+
+.FeedList {
+  padding: 30px 0;
+}
+
+.feedImg {
+  width: 100%;
+  object-fit: contain;
+}
+
+.feedHeader {
+  &__name {
+    font-weight: $fontWeightBold;
+    font-size: $feedName;
+    color: $feedNameColor;
+  }
+  
+}
+
+// contentHeader
+
+.contentHeader {
+  &__wrap {
+    margin: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__ul {
+    display: flex;
+  }
+  &__ul li {
+    margin-right: 7px;
+  }
+  &__ul li:last-child {
+    margin-right: 0;
+  }
+}
+
+// comment
+
+.comment {
+  padding: 20px 0;
+  display: flex;
+  &__input {
+    width: 100%;
+    border: none;
+  }
+}

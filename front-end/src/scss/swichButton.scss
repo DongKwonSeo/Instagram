@@ -1,0 +1,41 @@
+.switchButton {
+  position: relative;
+  display: inline-block;
+  &__label {
+    width: 112px;
+    height: 68px;
+    position: relative;
+    display: inline-block;
+    background: #404043;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+    &:after {
+      content: "";
+      background: $white;
+      width: 57px;
+      height: 57px;
+      border-radius: 34px;
+      display: inline-block;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      transition: left 0.3s ease-out;
+    }
+  }
+  &__checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    padding: 0;
+    margin: -1px;
+  }
+  &__checkbox:checked ~ &__label {
+    background-color: #73737c;
+    &:after {
+      left: calc(100% - 62px);
+    }
+  }
+}
