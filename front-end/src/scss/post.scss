@@ -1,3 +1,8 @@
+// PostList
+.PostList {
+  font-size: $fontSize20;
+}
+
 // PostHeader
 .postHeader {
   display: flex;
@@ -10,6 +15,13 @@
 // PostTag
 
 .PostTag {
+  display: flex;
+  justify-content: space-between;
+}
+
+// postShare
+
+.postShare {
   display: flex;
   justify-content: space-between;
 }

@@ -6,7 +6,7 @@ import PostTag from "./postTag";
 
 const PostList = () => {
   return (
-    <>
+    <div className="PostList">
       <PostHeader />
       <PostImg />
       <PostTag />
@@ -14,7 +14,7 @@ const PostList = () => {
       <PostShare />
       <PostShare />
       <PostShare />
-    </>
+    </div>
   );
 };
 

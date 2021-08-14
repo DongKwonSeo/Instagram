@@ -3,7 +3,7 @@ import SwitchButton from "../../button/switchButton";
 
 const PostShare = () => {
   return (
-    <div className="postShare">
+    <div className="postShare padding">
       <span>FaceBook</span>
       <SwitchButton />
     </div>
