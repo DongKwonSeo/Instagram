@@ -4,7 +4,7 @@
   max-width: 700px;
   margin: 0 auto;
   background: #fafafa;
-  border: 1px solid #000;
+  border: 1px solid #dbdbdb;
 }
 .container {
   max-width: 670px;
@@ -34,7 +34,7 @@
 // stort
 .storyList {
   background: $white;
-  padding: 25px 0;
+  padding: 10px 0;
 }
 
 // storyItem
@@ -63,6 +63,10 @@
 }
 
 // FeedList
+.feedList {
+  border-radius: 3px;
+  border: 1px solid #dbdbdb;
+}
 
 .feedImg {
   width: 100%;
@@ -117,6 +121,7 @@
 // comment
 
 .comment {
+  border-top: 1px solid #efefef;
   padding: 20px 0;
   display: flex;
   &__input {

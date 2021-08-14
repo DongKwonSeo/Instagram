@@ -22,7 +22,7 @@ const User = () => {
               clipRule="evenodd"
               cx="8"
               cy="24"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               r="4.5"
             ></circle>
             <circle

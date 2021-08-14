@@ -1,0 +1,15 @@
+// PostHeader
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  span {
+    color: $blue;
+  }
+}
+
+// PostTag
+
+.PostTag {
+  display: flex;
+  justify-content: space-between;
+}
