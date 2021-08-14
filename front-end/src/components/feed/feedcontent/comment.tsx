@@ -3,8 +3,8 @@ import React from "react";
 const Comment = () => {
   return (
     <div className="comment">
-      <h2></h2>
-      {/* icon */}
+      {/* <h2>댓글입력</h2> */}
+      {/* icon  */}
       <h3>
         <svg
           aria-label="이모티콘"

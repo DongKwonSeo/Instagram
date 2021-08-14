@@ -1,7 +1,7 @@
 import React from "react";
 import Comment from "./comment";
 import ContentList from "./contentList";
-import ContentHeader from "./header";
+import ContentHeader from "./feedIcon";
 
 const Content = () => {
   return (

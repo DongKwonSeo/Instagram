@@ -1,14 +1,10 @@
 import React from "react";
-import Content from "./content/content";
-import FeedImg from "./feedImg";
-import FeedHeader from "./header";
+import FeedItem from "./feedItem/feedItem";
 
 const FeedList = () => {
   return (
     <div className="FeedList">
-      <FeedHeader />
-      <FeedImg />
-      <Content />
+      <FeedItem />
     </div>
   );
 };
