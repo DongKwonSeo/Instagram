@@ -20,12 +20,14 @@
 
 // Header
 .header {
-  padding: 10px 0;
   background: white;
   border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
   &__wrap {
     display: flex;
     justify-content: space-between;
+  }
+  &__nav {
+    cursor: pointer;
   }
   &__ul {
     display: flex;
@@ -41,7 +43,6 @@
 // stort
 .storyList {
   background: $white;
-  padding: 10px 0;
 }
 
 // storyItem
@@ -85,6 +86,7 @@
   line-height: 32px;
   flex: 1;
   &__img {
+    margin-right: 10px;
     object-fit: contain;
     width: 32px;
     height: 32px;
@@ -105,10 +107,14 @@
     flex: 9;
   }
 }
+.like {
+  font-weight: $fontWeightBold;
+}
 
 // contentHeader
 
 .feedIcon {
+  cursor: pointer;
   padding: 10px 0;
   &__wrap {
     display: flex;
@@ -128,22 +134,29 @@
 // comment
 
 .comment {
-  border-top: 1px solid #efefef;
   padding: 20px 0;
   display: flex;
   &__input {
     width: 100%;
     border: none;
   }
+  &__icon {
+    margin-right: 10px;
+  }
 }
 
 // contentList
 .contentList {
-  display: flex;
-  &__item {
-    flex: 9;
+  border-bottom: 1px solid black;
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
   }
   &__icon {
     cursor: pointer;
+  }
+  &__user {
+    font-weight: $fontWeightBold;
+    margin-right: 5px;
   }
 }

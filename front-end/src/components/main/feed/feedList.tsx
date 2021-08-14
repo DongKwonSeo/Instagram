@@ -3,7 +3,7 @@ import FeedItem from "./feedItem/feedItem";
 
 const FeedList = () => {
   return (
-    <div className="feedList">
+    <div className="feedList ">
       <FeedItem />
     </div>
   );

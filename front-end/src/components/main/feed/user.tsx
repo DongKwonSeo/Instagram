@@ -2,7 +2,7 @@ import React from "react";
 
 const User = () => {
   return (
-    <header className="user ">
+    <header className="user container padding">
       <img className="user__img" src="../storyItem.jpeg" alt="유저이미지" />
       {/* user Name */}
       <div className="user__wrap">

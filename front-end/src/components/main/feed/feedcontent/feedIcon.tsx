@@ -3,7 +3,7 @@ import React from "react";
 const FeedIcon = () => {
   return (
     <>
-      <header className="feedIcon">
+      <header className="feedIcon container">
         <div className="feedIcon__wrap ">
           <nav className="feedIcon__nav">
             <ul className="feedIcon__ul">
@@ -69,7 +69,7 @@ const FeedIcon = () => {
         </div>
       </header>
       {/* like Number 좋아요 */}
-      <div className="like">
+      <div className="like padding container">
         <span>좋아요 30개</span>
       </div>
     </>

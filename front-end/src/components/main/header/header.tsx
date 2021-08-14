@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <header className="header">
-      <div className="header__wrap ">
+      <div className="header__wrap container padding ">
         <h1 className="header__logo">
           <img src="../imgs/logo.png" alt="로고 " />
         </h1>

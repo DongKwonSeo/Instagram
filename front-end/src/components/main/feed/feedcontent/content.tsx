@@ -5,7 +5,7 @@ import ContentHeader from "./feedIcon";
 
 const Content = () => {
   return (
-    <div className="content">
+    <div className="content padding">
       <ContentHeader />
       <ContentList />
       <Comment />
