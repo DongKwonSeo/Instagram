@@ -43,11 +43,14 @@
 // stort
 .storyList {
   background: $white;
+  display: flex;
+  overflow-x: scroll;
 }
 
 // storyItem
 .storyItem {
   width: 56px;
+  margin-right: 10px;
   &__wrap {
     padding-left: 8px;
     padding-top: 8px;
@@ -68,6 +71,9 @@
     font-size: $storyName;
     color: $storyNameColor;
   }
+}
+.storyItem:last-child {
+  margin-right: 0;
 }
 
 // FeedList
@@ -141,6 +147,7 @@
     border: none;
   }
   &__icon {
+    line-height: 12px;
     margin-right: 10px;
   }
 }
@@ -150,6 +157,7 @@
   border-bottom: 1px solid black;
   &__wrap {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
   &__icon {
