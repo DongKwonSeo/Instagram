@@ -1,6 +1,6 @@
 import React from "react";
 
-const FeedImg = () => {
+const FeedCarousel = () => {
   return (
     <>
       <img className="feedImg" src="../imgs/feedimg.jpeg" alt="피드 이미지" />
@@ -8,4 +8,4 @@ const FeedImg = () => {
   );
 };
 
-export default FeedImg;
+export default FeedCarousel;

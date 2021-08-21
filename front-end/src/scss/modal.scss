@@ -1,0 +1,26 @@
+.modal {
+  &__box {
+    width: 350px;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+  }
+  &__wrap {
+    text-align: center;
+  }
+  &__wrap span {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  &__wrap span strong {
+    color: $Red;
+  }
+  &__wrap span:last-child {
+    border: none;
+  }
+}

@@ -1,0 +1,29 @@
+// PostList
+.PostList {
+  font-size: $fontSize20;
+}
+
+// PostHeader
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  span {
+    color: $blue;
+  }
+}
+
+// PostTag
+
+.PostTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// postShare
+
+.postShare {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

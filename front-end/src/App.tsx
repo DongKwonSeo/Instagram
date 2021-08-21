@@ -1,19 +1,22 @@
-import React from "react";
-import FeedList from "./components/feed/feedList";
-import Header from "./components/header/header";
-import StoryList from "./components/story/storyList";
-import SwitchButton from "./components/switchButton";
+import React, { FC } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Index from "./pages";
+import Post from "./pages/post";
 import "./scss/style.scss";
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="container">
-      <Header />
-      <StoryList />
-      <FeedList />
-      <SwitchButton />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <>
+          <div className="app">
+            <Route exact path="/" component={Index} />
+            <Route exact path="/post" component={Post} />
+          </div>
+        </>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
