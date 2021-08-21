@@ -1,12 +1,14 @@
 import React from "react";
 import Comment from "./comment";
 import ContentList from "./contentList";
-import ContentHeader from "./feedIcon";
+import FeedIcon from "./Icon";
+// import ContentHeader from "./Icon";
 
 const Content = () => {
+  //Feed pors content , comments
   return (
     <div className="content padding">
-      <ContentHeader />
+      <FeedIcon />
       <ContentList />
       <Comment />
     </div>

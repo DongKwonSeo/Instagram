@@ -1,9 +1,12 @@
 import React from "react";
 
-const PostTag = () => {
+interface Props {
+  title: string;
+}
+const PostTag = ({ title }: Props) => {
   return (
     <div className="PostTag padding">
-      <span>사람태그 하기</span>
+      <span>{title}</span>
       <i className="fas fa-chevron-right"></i>
     </div>
   );

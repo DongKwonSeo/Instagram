@@ -1,15 +1,18 @@
 import React from "react";
 
-const SwitchButton = () => {
+interface Props {
+  id: string;
+}
+const SwitchButton = ({ id }: Props) => {
   return (
     <div className="switchButton">
       <input
-        id="checkbox"
+        id={id}
         className="switchButton__checkbox"
         type="checkbox"
         placeholder="asdasd"
       />
-      <label htmlFor="checkbox" className="switchButton__label" />
+      <label htmlFor={id} className="switchButton__label" />
     </div>
   );
 };
