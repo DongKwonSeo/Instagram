@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { MODAL } from "../../interfaces/interface";
+import { MODAL } from "../../../interfaces/interface";
 
 const Modal = ({ setmodal, modal }: MODAL) => {
   const modalsRef = useRef<HTMLInputElement>(null);

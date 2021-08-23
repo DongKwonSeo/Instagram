@@ -1,5 +1,5 @@
 import React from "react";
-import SwitchButton from "../../button/switchButton";
+import SwitchButton from "../../common/button/switchButton";
 
 interface Props {
   title: string;

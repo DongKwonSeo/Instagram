@@ -1,6 +1,6 @@
 export const initStory = [
   {
-    name: "cake.english",
+    name: "cake.englishdsdsdsdsdsdsdsd",
     src: "../storyItem.jpeg",
   },
   {

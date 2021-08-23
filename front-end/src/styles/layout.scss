@@ -3,8 +3,10 @@
 .app {
   max-width: 700px;
   margin: 0 auto;
-  background: #fafafa;
-  border: 1px solid #dbdbdb;
+  background-color: rgba(var(--b3f, 250, 250, 250), 1);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
 .container {
   max-width: 670px;
@@ -18,10 +20,19 @@
   padding: 30px 0;
 }
 
+.svg-inline--fa,
+.svg-inline--fa.fa-w-14 {
+  color: black;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 24px;
+  height: 24px;
+}
+
 // Header
 .header {
   background: white;
-  border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -31,6 +42,13 @@
   }
   &__ul {
     display: flex;
+    justify-content: space-between;
+    width: 95px;
+    align-items: center;
+  }
+  &__icon {
+    width: 22px;
+    height: 22px;
   }
   &__ul li {
     margin-right: 7px;
@@ -43,14 +61,15 @@
 // stort
 .storyList {
   background: $white;
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
   display: flex;
   overflow-x: scroll;
 }
 
 // storyItem
 .storyItem {
-  width: 56px;
-  margin-right: 10px;
+  text-align: center;
+  margin-right: 5px;
   padding-left: 8px;
   padding-top: 8px;
 
@@ -73,6 +92,11 @@
     margin-top: 8px;
     font-size: $storyName;
     color: $storyNameColor;
+    display: block;
+    text-overflow: ellipsis;
+    max-width: 74px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 .storyItem:last-child {
@@ -81,13 +105,17 @@
 
 // FeedList
 .feedList {
+  background: $white;
   border-radius: 3px;
-  border: 1px solid #dbdbdb;
 }
 
 .feedImg {
   width: 100%;
   object-fit: contain;
+}
+.feedItem {
+  margin-bottom: 24px;
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
 }
 
 .user {
@@ -155,7 +183,7 @@
 
 // contentList
 .contentList {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
   &__wrap {
     display: flex;
     align-items: center;

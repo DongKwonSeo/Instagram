@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Modal from "../../../modal/modal";
+import Modal from "../../../common/modal/modal";
 
 const User = () => {
   const [modal, setmodal] = useState<boolean>(false);
