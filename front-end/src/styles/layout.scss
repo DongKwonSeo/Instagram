@@ -182,7 +182,6 @@
 }
 // comment
 .comment {
-  border-bottom: $border;
   &__wrap {
     display: flex;
     align-items: center;
@@ -198,15 +197,31 @@
 }
 
 // commentInput
-.commentInput {
+.commentForm {
+  width: 100%;
+  border-top: $border;
   padding: 10px 0;
-  display: flex;
+  &__wrap {
+    display: flex;
+  }
   &__input {
-    width: 100%;
+    width: 92%;
     border: none;
   }
   &__icon {
     line-height: 12px;
     margin-right: 10px;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button {
+    cursor: pointer;
+    border: 0;
+    background: none;
+    color: #0095f6;
+    font-size: 14px;
   }
 }

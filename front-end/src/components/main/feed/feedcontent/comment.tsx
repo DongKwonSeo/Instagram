@@ -1,19 +1,19 @@
 import React from "react";
-import { FEEDITEM } from "../../../../pages/feed";
+import { COMMENT } from "../../../../interfaces/interface";
 
 interface Props {
-  item: FEEDITEM;
+  comment: COMMENT;
 }
-const Comment = ({ item }: Props) => {
+const Comment = ({ comment }: Props) => {
   return (
     <div className="comment">
       <div className="comment__wrap container">
         <ul className="comment__item padding">
           <li>
             {/* content 이름  */}
-            <strong className="comment__user">{item.user_nickname}</strong>
+            <strong className="comment__user">{comment.user_nickname}</strong>
             {/* content 내용 */}
-            {item.text}
+            {comment.comment_text}
           </li>
         </ul>
         {/* 좋아요 Icon */}

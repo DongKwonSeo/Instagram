@@ -1,15 +1,15 @@
-import { Dispatch } from "react";
-import { SetStateAction } from "react";
+import React from "react";
 
 // useForm 사용
 interface Props {
-  onChangeText: Dispatch<SetStateAction<string>>;
-  onChangeFiles: any;
+  setText: (value: string) => void;
+  // onChangeText: (value: string) => void;
+  onChangeFiles: (e: React.ChangeEvent<HTMLInputElement>) => void;
   text: string;
   img: string;
 }
 
-const PostForm = ({ onChangeText, onChangeFiles, text, img }: Props) => {
+const PostForm = ({ setText, onChangeFiles, text, img }: Props) => {
   const onfileClick = () => {
     const imgtag: HTMLElement | null = document.getElementById("test");
     imgtag?.click();
@@ -17,7 +17,7 @@ const PostForm = ({ onChangeText, onChangeFiles, text, img }: Props) => {
 
   // handleChange
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChangeText(e.target.value);
+    setText(e.target.value);
   };
 
   return (

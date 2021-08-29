@@ -1,25 +1,35 @@
 import React from "react";
+// interface
 import { FEEDITEM } from "../../../../pages/feed";
-import CommentInput from "./input";
+import { COMMENT } from "../../../../interfaces/interface";
+// components
+import CommentForm from "./form";
 import FeedIcon from "./Icon";
 import Comment from "./comment";
 import ContentItem from "./contentItem";
+
+import { useQuery } from "react-query";
+import axios from "axios";
+
 // import ContentHeader from "./Icon";
 
 interface Props {
   item: FEEDITEM;
+  comment?: Comment;
 }
 const Content = ({ item }: Props) => {
-  //Feed pors content , comments
+  const { data: response } = useQuery("coment", () =>
+    axios.get("http://localhost:5000/api/comment")
+  );
+
   return (
     <div className="content padding">
       <FeedIcon item={item} />
       <ContentItem item={item} />
-      <Comment item={item} />
-      <CommentInput />
-      {/* 여기로 가지고 오는데 */}
-      {/* 댓글을 여기로 가지고 온다  */}
-      {/*i wil fix these  */}
+      {response?.data.comments.map((comment: COMMENT, key: COMMENT) => {
+        return <Comment comment={comment} key={comment.id} />;
+      })}
+      <CommentForm />
     </div>
   );
 };

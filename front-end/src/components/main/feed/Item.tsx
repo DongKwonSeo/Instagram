@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Content from "./feedcontent/content";
 // import FeedCarousel from "./Carousel";
-import User from "./feedItem/user";
 import { FEEDITEM } from "../../../pages/feed";
+import User from "./feedItem/user";
 import Modal from "../../common/modal/modal";
 
 interface Props {
@@ -10,9 +10,11 @@ interface Props {
 }
 const FeedItem = ({ item }: Props) => {
   const [modal, setmodal] = useState<boolean>(false);
+
   const toggleModal = () => {
     setmodal(() => !modal);
   };
+  
   return (
     <>
       <div className="feedItem">
@@ -31,6 +33,7 @@ const FeedItem = ({ item }: Props) => {
         {/* )} */}
         <Content item={item} />
       </div>
+      {/* modal  */}
       {modal && <Modal feedId={item.id} closeModal={toggleModal} />}
     </>
   );
