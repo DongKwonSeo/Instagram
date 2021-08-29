@@ -1,39 +1,24 @@
 import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { MODAL } from "../../../interfaces/interface";
+import { Link } from "react-router-dom";
 
-const Modal = ({ setmodal, modal }: MODAL) => {
-  const modalsRef = useRef<HTMLInputElement>(null);
+interface MODAL {
+  feedId: string;
+  closeModal: () => void;
+}
 
-  // Modal close  outSide close
-  let modalHandeler = (event: any) => {
-    if (!modalsRef.current?.contains(event.target)) {
-      setmodal(false);
-    }
-  };
-
-  useEffect(() => {
-    // Modal close  outSide close
-    document.addEventListener("click", modalHandeler);
-    return () => {
-      document.removeEventListener("click", modalHandeler);
-    };
-  }, []);
-
+const Modal = ({ feedId, closeModal }: MODAL) => {
   return (
     <>
-      <article className="modal">
-        <div className="modal__box" ref={modalsRef}>
-          <div className="modal__wrap container">
-            <span>
-              <strong>신고</strong>
+      <article className="modal" onClick={closeModal}>
+        <div className="modal__box" onClick={(e) => e.stopPropagation()}>
+          <div className="modal__list container">
+            <span className="modal__item">신고</span>
+            <Link className="modal__item" to={`/post/${feedId}`}>
+              수정
+            </Link>
+            <span className="modal__item" onClick={closeModal}>
+              취소
             </span>
-            <span>
-              <strong>팔로우 취소 </strong>
-            </span>
-            <span>게시물 이동</span>
-            <span>취소</span>
           </div>
         </div>
       </article>

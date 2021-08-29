@@ -1,5 +1,18 @@
 .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  // @include fade-in(0.3);
+
+  // @mixin fade-in() {
+  //   animation: fade-in 0.3s d;
+  // }
+
   &__box {
+    overflow: hidden;
     width: 350px;
     border: 1px solid #dbdbdb;
     border-radius: 10px;
@@ -9,18 +22,27 @@
     transform: translate(-50%, -50%);
     background: $white;
   }
-  &__wrap {
-    text-align: center;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    :first-child {
+      color: $red;
+    }
   }
-  &__wrap span {
-    display: block;
+
+  &__item {
     padding: 20px 0;
-    border-bottom: 1px solid #dbdbdb;
-  }
-  &__wrap span strong {
-    color: $Red;
-  }
-  &__wrap span:last-child {
-    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+
+    & + & {
+      border-top: 1px solid #eeeeee;
+    }
+
+    &:hover {
+      background-color: #eeeeee;
+    }
   }
 }

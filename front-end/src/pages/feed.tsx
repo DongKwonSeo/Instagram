@@ -6,26 +6,32 @@ import axios, { AxiosResponse } from "axios";
 export interface FEEDITEM {
   id: string;
   user_nickname?: string;
-  text?: string;
-  image?: string;
-  like?: number;
+  text: string;
+  image: string;
+  like: number;
 }
+// 변수명 변경
+
+// const getContent = async (): Promise<FEEDITEM | void> => {
+//   await axios("http://localhost:5000/api/content");
+// };
 
 const Feed = () => {
-  // const [item,se]
-  //1.Create Hook Get Feed List Backend
-  //2.Feed * for list count
-  //3. Feed Item props list[index] item
+  // const { data, isLoading, error } = useQuery<Data, ErrorConstructor>(
+  //   "feedItem",
+  //   getContent
+  // );
 
-  const { isLoading, error, data } = useQuery<AxiosResponse<any> | undefined>(
-    "feedItem",
-    () => axios("http://localhost:5000/api/content")
+  const { data: responseFeedList, error } = useQuery<any, Error>(
+    "feedList",
+    () => axios.get("http://localhost:5000/api/content")
   );
+
   return (
     <article className="feedList ">
-      {data?.data.contents.map((item: FEEDITEM, key: number) => (
-        <FeedItem item={item} key={key} />
-      ))}
+      {responseFeedList?.data.contents
+        .map((item: FEEDITEM) => <FeedItem item={item} key={item.id} />)
+        .reverse()}
     </article>
   );
 };

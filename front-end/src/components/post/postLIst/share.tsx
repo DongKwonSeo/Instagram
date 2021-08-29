@@ -9,7 +9,7 @@ const PostShare = ({ title, id }: Props) => {
   return (
     <div className="postShare padding">
       <span>{title}</span>
-      <SwitchButton id={"check1"} />
+      <SwitchButton id={id} />
     </div>
   );
 };

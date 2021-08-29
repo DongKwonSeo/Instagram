@@ -1,14 +1,23 @@
+.post {
+  border: $border;
+}
+
 // PostList
-.PostList {
+.postEditer {
   font-size: $fontSize20;
+  width: 100%;
 }
 
 // PostHeader
 .postHeader {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  span {
+  padding: 10px 0;
+
+  &__submit {
     color: $blue;
+    cursor: pointer;
   }
 }
 
@@ -26,4 +35,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+// postImg
+.postImg {
+  display: flex;
+}
+
+.textarea {
+  border: none;
+  text-align: center;
+  line-height: 50px;
 }

@@ -3,7 +3,3 @@ export interface Story {
   src: string;
 }
 
-export interface MODAL {
-  setmodal: any;
-  modal: any;
-}

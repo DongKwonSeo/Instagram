@@ -12,7 +12,13 @@ const Header = () => {
           <ul className="header__ul">
             <Link to="/post">
               <li>
-                <i className="far fa-plus-square "></i>
+                <i className="fa-plus-square ">
+                  <img
+                    src="/imgs/fa-plus-square.png"
+                    alt="fa-plus-square"
+                    width="22px"
+                  />
+                </i>
               </li>
             </Link>
             <li>

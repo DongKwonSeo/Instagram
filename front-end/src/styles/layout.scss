@@ -1,9 +1,13 @@
 @import "./variables.scss";
 
+#root {
+  background-color: $backGroundMain;
+}
 .app {
   max-width: 700px;
   margin: 0 auto;
-  background-color: rgba(var(--b3f, 250, 250, 250), 1);
+  height: 100%;
+
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -22,7 +26,7 @@
 
 .svg-inline--fa,
 .svg-inline--fa.fa-w-14 {
-  color: black;
+  color: rgb(38, 38, 38);
 }
 .svg-inline--fa.fa-w-14 {
   width: 24px;
@@ -32,7 +36,7 @@
 // Header
 .header {
   background: white;
-  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border: $border;
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -51,7 +55,6 @@
     height: 22px;
   }
   &__ul li {
-    margin-right: 7px;
   }
   &__ul li:last-child {
     margin-right: 0;
@@ -61,7 +64,7 @@
 // stort
 .storyList {
   background: $white;
-  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border: $border;
   display: flex;
   overflow-x: scroll;
 }
@@ -115,7 +118,7 @@
 }
 .feedItem {
   margin-bottom: 24px;
-  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border: $border;
 }
 
 .user {
@@ -166,24 +169,20 @@
   }
 }
 
-// comment
-
-.comment {
-  padding: 20px 0;
-  display: flex;
-  &__input {
-    width: 100%;
-    border: none;
+.contentItem {
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  &__icon {
-    line-height: 12px;
-    margin-right: 10px;
+  &__user {
+    font-weight: $fontWeightBold;
+    margin-right: 5px;
   }
 }
-
-// contentList
-.contentList {
-  border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+// comment
+.comment {
+  border-bottom: $border;
   &__wrap {
     display: flex;
     align-items: center;
@@ -195,5 +194,19 @@
   &__user {
     font-weight: $fontWeightBold;
     margin-right: 5px;
+  }
+}
+
+// commentInput
+.commentInput {
+  padding: 10px 0;
+  display: flex;
+  &__input {
+    width: 100%;
+    border: none;
+  }
+  &__icon {
+    line-height: 12px;
+    margin-right: 10px;
   }
 }
