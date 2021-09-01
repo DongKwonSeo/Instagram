@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-interface MODAL {
+interface Props {
   feedId: string;
   closeModal: () => void;
 }
 
-const Modal = ({ feedId, closeModal }: MODAL) => {
+const Modal = ({ feedId, closeModal }: Props) => {
   return (
     <>
       <article className="modal" onClick={closeModal}>

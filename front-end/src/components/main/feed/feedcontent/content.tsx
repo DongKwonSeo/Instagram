@@ -1,35 +1,37 @@
 import React from "react";
 // interface
 import { FEEDITEM } from "../../../../pages/feed";
-import { COMMENT } from "../../../../interfaces/interface";
 // components
-import CommentForm from "./form";
+import CommentForm from "../comment/form";
 import FeedIcon from "./Icon";
-import Comment from "./comment";
 import ContentItem from "./contentItem";
-
-import { useQuery } from "react-query";
+import Comments from "../comment/comment";
 import axios from "axios";
+import { useState } from "react";
+import { COMMENT } from "../../../../interfaces/interface";
 
 // import ContentHeader from "./Icon";
 
 interface Props {
   item: FEEDITEM;
-  comment?: Comment;
 }
 const Content = ({ item }: Props) => {
-  const { data: response } = useQuery("coment", () =>
-    axios.get("http://localhost:5000/api/comment")
-  );
+  const [comments, Setcomments] = useState<[COMMENT]>(item.comments);
+
+  // get 게시물 하나만 가지고 오기
+  const onChange = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/api/content/${item.id}`
+    );
+    Setcomments(data.content.comments);
+  };
 
   return (
     <div className="content padding">
       <FeedIcon item={item} />
       <ContentItem item={item} />
-      {response?.data.comments.map((comment: COMMENT, key: COMMENT) => {
-        return <Comment comment={comment} key={comment.id} />;
-      })}
-      <CommentForm />
+      <Comments commentList={comments} />
+      <CommentForm item={item} onChange={onChange} />
     </div>
   );
 };

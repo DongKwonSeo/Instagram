@@ -1,4 +1,3 @@
-import { ListItem } from "@material-ui/core";
 import React, { FC } from "react";
 import {
   BrowserRouter,
@@ -7,14 +6,16 @@ import {
   // useLocation,
   // useParams,
 } from "react-router-dom";
+import CommentList from "./components/main/feed/comment/list";
 import Index from "./pages";
 import Post from "./pages/post";
 import "./styles/style.scss";
-const home = [];
+
 const post = [
   { path: "/", component: Index },
   { path: "/post", component: Post },
   { path: "/post/:id", component: Post },
+  { path: "/commentList", component: CommentList },
 ];
 const App: FC = () => {
   return (

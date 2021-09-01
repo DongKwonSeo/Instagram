@@ -1,7 +1,5 @@
 import React from "react";
-import { useState } from "react";
 import { FEEDITEM } from "../../../../pages/feed";
-import Modal from "../../../common/modal/modal";
 
 interface Props {
   item: FEEDITEM;

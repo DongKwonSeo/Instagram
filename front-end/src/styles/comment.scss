@@ -1,0 +1,17 @@
+// CommentList
+
+.CommentList {
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+
+  &__imgList {
+    width: 50%;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__total {
+    width: 50%;
+  }
+}

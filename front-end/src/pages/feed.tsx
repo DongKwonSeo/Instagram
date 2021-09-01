@@ -1,7 +1,8 @@
 import React from "react";
-import FeedItem from "../components/main/feed/Item";
+import FeedItem from "../components/main/feed/feedItem/Item";
 import { useQuery } from "react-query";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
+import { COMMENT } from "../interfaces/interface";
 
 export interface FEEDITEM {
   id: string;
@@ -9,6 +10,7 @@ export interface FEEDITEM {
   text: string;
   image: string;
   like: number;
+  comments: [COMMENT];
 }
 // 변수명 변경
 

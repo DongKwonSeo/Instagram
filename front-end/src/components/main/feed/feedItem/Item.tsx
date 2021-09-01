@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Content from "./feedcontent/content";
+import Content from "../feedcontent/content";
 // import FeedCarousel from "./Carousel";
-import { FEEDITEM } from "../../../pages/feed";
-import User from "./feedItem/user";
-import Modal from "../../common/modal/modal";
+import { FEEDITEM } from "../../../../pages/feed";
+import User from "./user";
+import Modal from "../../../common/modal/modal";
 
 interface Props {
   item: FEEDITEM;

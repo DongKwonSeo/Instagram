@@ -4,13 +4,12 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import PostEditer from "../components/post/postLIst/editer";
 
-interface PARAM {
+export interface PARAM {
   id: string;
 }
 
 const Post = () => {
   const param = useParams<PARAM>();
-
   const { data } = useQuery(
     "getFeedById",
     async () => {
@@ -20,6 +19,7 @@ const Post = () => {
       enabled: !!param.id,
     }
   );
+
   return (
     <div className="post">
       <div className="container">

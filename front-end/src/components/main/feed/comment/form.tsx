@@ -1,18 +1,26 @@
 import { useState, FormEvent } from "react";
 import axios from "axios";
+import { FEEDITEM } from "../../../../pages/feed";
 
-const CommentForm = () => {
+interface Props {
+  item: FEEDITEM;
+  onChange: () => void;
+  // comment?: Comment;
+}
+
+const CommentForm = ({ item, onChange }: Props) => {
   const [comment, setComment] = useState<string>("");
 
   const onSumnit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const data = {
-        content_id: "612b2ef0d65b062aaf159446",
+        content_id: item.id,
         comment_text: comment,
         user_nickname: "인스타그램",
       };
       await axios.post("http://localhost:5000/api/comment", data);
+      await onChange();
       setComment("");
     } catch (error) {
       console.log(error);

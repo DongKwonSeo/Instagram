@@ -6,8 +6,11 @@ import PostHeader from "./header";
 import PostForm from "./postForm";
 import PostShare from "./share";
 import PostTag from "./postTag";
+// import { useQuery } from "react-query";
+// import { FEEDITEM, PARAM } from "../../../interfaces/interface";
 
 const PostEditer = () => {
+  // const param = useParams<PARAM>();
   const history = useHistory();
   const [text, setText] = useState<string>("");
   const [files, setfiles] = useState<string | Blob>("");
@@ -23,11 +26,12 @@ const PostEditer = () => {
         },
       };
       const formData = new FormData();
+
       formData.append("image", files);
       formData.append("user_nickname", "서동권");
       formData.append("text", text);
 
-      await axios.post("http://localhost:5000/api/content", formData, config);
+      await axios.post("http://localhost:5000/api/content/", formData, config);
       // Router History
       history.push("/");
     } catch (error) {
@@ -35,6 +39,16 @@ const PostEditer = () => {
       alert("실패하였습니다");
     }
   };
+
+  // // 수정 data
+  // useQuery("edit", async () => {
+  //   const { data } = await axios.get(
+  //     `http://localhost:5000/api/content/${param.id}`
+  //   );
+  //   const content: FEEDITEM = data.content;
+  //   setImage(content.image);
+  //   setText(content.text);
+  // });
 
   const onChangeFileReader = (e: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = e.target.files;
@@ -49,19 +63,6 @@ const PostEditer = () => {
     //image priview
     setImage(image);
   };
-  // const onChangeFileReader = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (!e.target.files[0]) {
-  //     return;
-  //   }
-
-  //   const file = e.target.files[0];
-  //   // Data Upload
-  //   setfiles(file);
-
-  //   const Image = URL.createObjectURL(file);
-  //   //image priview
-  //   setImage(Image);
-  // };
 
   return (
     <div className="postEditer">
