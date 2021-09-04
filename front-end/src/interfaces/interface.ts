@@ -4,8 +4,8 @@ export interface Story {
 }
 
 export interface COMMENT {
-  cratedAt: Date;
-  updatedAt: Date;
+  cratedAt: string;
+  updatedAt: string;
   _id: string;
   user_nickname: string;
   comment_text: string;
@@ -16,7 +16,6 @@ export interface COMMENT {
 export interface PARAM {
   id: string;
 }
-
 
 export interface FEEDITEM {
   id: string;

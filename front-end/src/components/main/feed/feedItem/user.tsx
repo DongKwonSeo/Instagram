@@ -1,5 +1,5 @@
 import React from "react";
-import { FEEDITEM } from "../../../../pages/feed";
+import { FEEDITEM } from "../../../../interfaces/interface";
 
 interface Props {
   item: FEEDITEM;

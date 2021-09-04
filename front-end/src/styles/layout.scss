@@ -158,25 +158,17 @@
 .feedIcon {
   cursor: pointer;
   padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  &__ul {
+  &__box {
+    flex: 1;
+  }
+  &__menu {
     display: flex;
-  }
-  &__ul li {
-    margin-right: 7px;
-  }
-  &__ul li:last-child {
-    margin-right: 0;
   }
 }
 
 .contentItem {
-  &__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  display: flex;
+  align-items: center;
   &__user {
     font-weight: $fontWeightBold;
     margin-right: 5px;
@@ -192,6 +184,7 @@
   &__icon {
     cursor: pointer;
   }
+
   &__user {
     font-weight: $fontWeightBold;
     margin-right: 5px;

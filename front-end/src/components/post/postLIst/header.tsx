@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 interface Props {
-  handleSubmit: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void>;
+  title: string;
+  submitLabel: string;
+  handleSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const PostHeader = ({ handleSubmit }: Props) => {
+const PostHeader = ({ title, submitLabel, handleSubmit }: Props) => {
   return (
     <div className="postHeader">
       <span className="postHeader__btn">
@@ -12,9 +14,9 @@ const PostHeader = ({ handleSubmit }: Props) => {
           <i className="fas fa-chevron-left"></i>
         </Link>
       </span>
-      <h2>새 게시물</h2>
+      <h2>{title}</h2>
       <span className="postHeader__submit" onClick={handleSubmit}>
-        공유
+        {submitLabel}
       </span>
     </div>
   );

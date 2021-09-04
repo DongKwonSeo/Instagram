@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import axios from "axios";
-import { FEEDITEM } from "../../../../pages/feed";
+import { FEEDITEM } from "../../../../interfaces/interface";
 
 interface Props {
   item: FEEDITEM;

@@ -6,16 +6,18 @@ import {
   // useLocation,
   // useParams,
 } from "react-router-dom";
-import CommentList from "./components/main/feed/comment/list";
+import ContentDetail from "./components/main/feed/comment/contentDetail";
+// import PostEditer from "./components/post/postLIst/editer";
+import PostModify from "./components/post/postLIst/modify";
 import Index from "./pages";
-import Post from "./pages/post";
+// import Post from "./pages/post";
 import "./styles/style.scss";
 
 const post = [
   { path: "/", component: Index },
-  { path: "/post", component: Post },
-  { path: "/post/:id", component: Post },
-  { path: "/commentList", component: CommentList },
+  { path: "/post", component: PostModify },
+  { path: "/post/:id", component: PostModify },
+  { path: "/commentList/:id", component: ContentDetail },
 ];
 const App: FC = () => {
   return (

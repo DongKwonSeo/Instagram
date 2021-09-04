@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Content from "../feedcontent/content";
 // import FeedCarousel from "./Carousel";
-import { FEEDITEM } from "../../../../pages/feed";
+import { FEEDITEM } from "../../../../interfaces/interface";
 import User from "./user";
 import Modal from "../../../common/modal/modal";
 
@@ -12,9 +12,9 @@ const FeedItem = ({ item }: Props) => {
   const [modal, setmodal] = useState<boolean>(false);
 
   const toggleModal = () => {
-    setmodal(() => !modal);
+    setmodal((state) => !state);
   };
-  
+
   return (
     <>
       <div className="feedItem">

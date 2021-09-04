@@ -1,6 +1,5 @@
 import React from "react";
 // interface
-import { FEEDITEM } from "../../../../pages/feed";
 // components
 import CommentForm from "../comment/form";
 import FeedIcon from "./Icon";
@@ -8,13 +7,14 @@ import ContentItem from "./contentItem";
 import Comments from "../comment/comment";
 import axios from "axios";
 import { useState } from "react";
-import { COMMENT } from "../../../../interfaces/interface";
+import { FEEDITEM, COMMENT } from "../../../../interfaces/interface";
 
 // import ContentHeader from "./Icon";
 
 interface Props {
   item: FEEDITEM;
 }
+
 const Content = ({ item }: Props) => {
   const [comments, Setcomments] = useState<[COMMENT]>(item.comments);
 
@@ -30,7 +30,7 @@ const Content = ({ item }: Props) => {
     <div className="content padding">
       <FeedIcon item={item} />
       <ContentItem item={item} />
-      <Comments commentList={comments} />
+      <Comments commentList={comments} feedId={item.id} />
       <CommentForm item={item} onChange={onChange} />
     </div>
   );
