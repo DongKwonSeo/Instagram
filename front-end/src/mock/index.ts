@@ -4,8 +4,8 @@ export const user = {
 
 export const initStory = [
   {
-    name: "cake.englishdsdsdsdsdsdsdsd",
-    src: "../storyItem.jpeg",
+    name: "hello",
+    src: "../imgs/feedimg.jpeg",
   },
   {
     name: "cake.english",

@@ -6,7 +6,7 @@ interface Props {
 }
 const ContentItem = ({ item }: Props) => {
   return (
-    <div className="contentItem container padding">
+    <div className="contentItem ">
       {/* content 이름  */}
       <strong className="contentItem__user">{item.user_nickname}</strong>
       {/* content 내용 */}

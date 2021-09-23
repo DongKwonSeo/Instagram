@@ -16,6 +16,7 @@ const Feed = () => {
     [responseFeedList]
   );
 
+  console.log(feedList);
   return (
     <article className="feedList ">
       {feedList

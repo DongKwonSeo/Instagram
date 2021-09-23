@@ -1,18 +1,17 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { FEEDITEM } from "../../../../interfaces/interface";
 
 interface Props {
   item: FEEDITEM;
-  onChange: () => void;
+  updateCommentList: () => void;
   // comment?: Comment;
 }
 
-const CommentForm = ({ item, onChange }: Props) => {
+const CommentForm = ({ item, updateCommentList }: Props) => {
   const [comment, setComment] = useState<string>("");
 
-  const onSumnit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSumnit = async () => {
     try {
       const data = {
         content_id: item.id,
@@ -20,13 +19,14 @@ const CommentForm = ({ item, onChange }: Props) => {
         user_nickname: "인스타그램",
       };
       await axios.post("http://localhost:5000/api/comment", data);
-      await onChange();
-      setComment("");
+      await updateCommentList();
+      await setComment("");
     } catch (error) {
       console.log(error);
       alert("실패입니다");
     }
   };
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setComment(e.target.value);
   };
@@ -35,7 +35,7 @@ const CommentForm = ({ item, onChange }: Props) => {
     <div className="commentForm ">
       {/* <h2>댓글입력</h2> */}
       {/* icon  */}
-      <div className="commentForm__wrap container">
+      <div className="commentForm__wrap ">
         <span className="commentForm__icon">
           <svg
             aria-label="이모티콘"
@@ -51,18 +51,27 @@ const CommentForm = ({ item, onChange }: Props) => {
           </svg>
         </span>
         {/* Input */}
-        <form className="commentForm__form" onSubmit={onSumnit}>
-          <input
-            className="commentForm__input"
-            type="text"
-            placeholder="댓글 달기 .."
-            value={comment}
-            onChange={onChangeHandler}
-          />
-          <button type="submit" className="commentForm__button">
+        <div className="commentForm__form">
+          <label className="commentForm__label">
+            <input
+              className="commentForm__input"
+              type="text"
+              placeholder="댓글 달기 .."
+              value={comment}
+              onChange={onChangeHandler}
+            />
+          </label>
+          <button
+            className={`${
+              comment.length <= 0
+                ? "commentForm__button"
+                : "commentForm__buttons"
+            }`}
+            onClick={onSumnit}
+          >
             게시
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );

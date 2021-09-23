@@ -1,0 +1,76 @@
+// size
+.smallContainer > .commentForm {
+  border-top: none;
+}
+
+.smallContainer .commentForm__input {
+  width: 87%;
+}
+
+// contentDetail
+
+.contentDetail {
+  max-width: 700px;
+  max-height: 700px;
+  display: flex;
+  justify-content: space-between;
+  border: $border;
+  &__wrap {
+    border-bottom: $border;
+    width: 100%;
+    margin: 5px 0;
+  }
+  &__imgList {
+    width: 50%;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__list {
+    padding: 0 $container;
+  }
+  &__total {
+    width: 50%;
+    background-color: $white;
+  }
+  &__user {
+    border-bottom: $border;
+  }
+  &__item {
+    border-bottom: $border;
+    margin-top: 15px;
+    overflow-y: scroll;
+    height: 350px;
+    -ms-overflow-style: none;
+    & .comment__box {
+      margin: 12px 0;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+  &__item::-webkit-scrollbar {
+    display: none;
+  }
+  &__icon {
+    padding: 0 $container;
+    margin: 10px 0;
+  }
+  &__list .comment__desc {
+    margin-bottom: 7px;
+  }
+}
+
+// DetailItem
+
+.detailItem {
+  padding: 0 $container;
+  &__infor {
+    display: flex;
+    align-items: center;
+  }
+  &__text {
+    margin-left: 3px;
+  }
+}

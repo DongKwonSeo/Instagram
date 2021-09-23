@@ -1,11 +1,6 @@
 import React from "react";
-import { FEEDITEM } from "../../../interfaces/interface";
 
-// useForm 사용
 interface Props {
-  // onChangeText: (value: string) => void;
-  // onChangeText: (value: string) => void;
-
   onChangeFiles: (e: React.ChangeEvent<HTMLInputElement>) => void;
   text: string;
   img: string;
@@ -22,16 +17,18 @@ const PostForm = ({ handleChange, onChangeFiles, text, img }: Props) => {
     imgtag?.click();
   };
 
-  // handleChange
-  // const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   onChangeText(e.target.value);
-  // };
-
   return (
     <div className="postImg padding_big">
-      <input id="test" hidden type="file" onChange={onChangeFiles} />
-      <img onClick={onfileClick} src={img} alt="이미지업로드" />
-
+      <div className="postImg__box">
+        <input id="test" hidden type="file" onChange={onChangeFiles} />
+        <img
+          className="postImg__img"
+          onClick={onfileClick}
+          // img 변경하기 !!!!
+          src={img || "../imgs/imgForm.png"}
+          alt="이미지업로드"
+        />
+      </div>
       <textarea
         placeholder="문구 입력..."
         className="textarea"

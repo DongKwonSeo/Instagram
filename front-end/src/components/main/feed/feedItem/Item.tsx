@@ -31,7 +31,7 @@ const FeedItem = ({ item }: Props) => {
           />
         </div>
         {/* )} */}
-        <Content item={item} />
+        <Content item={item} toggleModal={toggleModal} />
       </div>
       {/* modal  */}
       {modal && <Modal feedId={item.id} closeModal={toggleModal} />}

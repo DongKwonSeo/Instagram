@@ -7,7 +7,7 @@ interface Props {
 }
 const User = ({ item, toggleModal }: Props) => {
   return (
-    <header className="user container padding">
+    <header className="user ">
       <img className="user__img" src="../storyItem.jpeg" alt="유저이미지" />
       {/* user Name */}
       <div className="user__wrap">

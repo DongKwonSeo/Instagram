@@ -4,8 +4,13 @@
 
 // PostList
 .postEditer {
-  font-size: $fontSize20;
+  border: $border;
+  font-size: $fontSize16;
   width: 100%;
+
+  &__wrap {
+    padding: 0 $container;
+  }
 }
 
 // PostHeader
@@ -13,11 +18,22 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  align-items: stretch;
 
   &__submit {
     color: $blue;
     cursor: pointer;
+    font-size: $fontSize14;
+    padding: 0 $container;
+  }
+  &__title {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  &__prev {
+    display: flex;
+    align-items: center;
+    padding: 0 $container;
   }
 }
 
@@ -40,10 +56,20 @@
 // postImg
 .postImg {
   display: flex;
+  justify-content: space-between;
+  &__box {
+    width: 20%;
+  }
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    cursor: pointer;
+  }
 }
 
 .textarea {
+  width: 77%;
   border: none;
-  text-align: center;
+  text-align: left;
   line-height: 50px;
 }

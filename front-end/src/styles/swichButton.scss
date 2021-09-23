@@ -2,8 +2,8 @@
   position: relative;
   display: inline-block;
   &__label {
-    width: 45px;
-    height: 20px;
+    width: 50px;
+    height: 29px;
     // width: 112px;
     // height: 68px;
     position: relative;
@@ -16,13 +16,13 @@
     &:after {
       content: "";
       background: $white;
-      width: 13px;
-      height: 13px;
+      width: 25px;
+      height: 25px;
       border-radius: 13px;
       display: inline-block;
       position: absolute;
-      left: 5px;
-      top: 5px;
+      left: 2px;
+      top: 2px;
       transition: left 0.3s ease-out;
     }
   }
@@ -37,7 +37,7 @@
   &__checkbox:checked ~ &__label {
     background-color: #73737c;
     &:after {
-      left: calc(100% - 18px);
+      left: calc(100% - 27px);
     }
   }
 }

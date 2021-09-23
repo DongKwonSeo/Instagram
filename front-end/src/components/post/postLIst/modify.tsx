@@ -10,16 +10,20 @@ import { useQuery } from "react-query";
 import { PARAM } from "../../../interfaces/interface";
 import Useform from "../../../hooks/useForm";
 
-// const initForm = {
-//   user_nickname: user.name,
-//   text: "",
-//   img: "",
-// };
+interface PostInput {
+  text: string;
+}
+
+const initForm: PostInput = {
+  // user_nickname: user.name,
+  text: "",
+  // img: "",
+};
 
 const PostModify = () => {
   const param = useParams<PARAM>();
   const history = useHistory();
-  const { form, handleChange, setForm } = Useform();
+  const { form, handleChange, setForm } = Useform(initForm);
   const [files, setfiles] = useState<string | Blob>("");
   const [img, setImage] = useState<string>("../imgs/imgForm.png");
 
@@ -27,17 +31,14 @@ const PostModify = () => {
 
   // 수정 data
 
-  useQuery(
+  const { data: responseContent } = useQuery(
     "edit",
     async () => {
       const res = await axios.get(
         `http://localhost:5000/api/content/${feedId}`
       );
-      setImage(res.data.content.image);
-      setForm({
-        // user_nickname:res.data.content.user_nickanme,
-        text: res.data.content.text,
-      });
+
+      return res;
     },
     {
       enabled: !!feedId,
@@ -60,7 +61,6 @@ const PostModify = () => {
 
   // handleSubmit
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
     try {
       const config: AxiosRequestConfig = {
         headers: {
@@ -76,8 +76,10 @@ const PostModify = () => {
       const params = [formData, config];
 
       feedId ? updateFeed(params) : addFeed(params);
+
       // Router History
       history.push("/");
+      
     } catch (error) {
       console.log(error);
       alert("실패하였습니다");
@@ -92,13 +94,17 @@ const PostModify = () => {
     await axios.post(`http://localhost:5000/api/content`, ...params);
   };
 
-  // useEffect(() => {
-  //   const content = responseContent?.content || [];
-
-  //   if (content) {
-  //     // onChangeForm(content.user_nickname, content.text, content.img);
-  //   }
-  // }, [responseContent]);
+  useEffect(() => {
+    if (feedId) {
+      const content = responseContent?.data?.content || [];
+      if (content) {
+        setImage(content.image);
+        setForm({
+          text: content.text,
+        });
+      }
+    }
+  }, [feedId, responseContent, setForm, setImage]);
 
   return (
     <div className="postEditer">
@@ -106,22 +112,24 @@ const PostModify = () => {
       <PostHeader
         handleSubmit={handleSubmit}
         submitLabel={feedId ? "수정" : "게시"}
-        title={feedId ? "게시글 수정" : "게시글 게시"}
+        title={feedId ? "게시글 수정" : "새 게시물"}
       />
-      {/* 이미지 추가 */}
-      <PostForm
-        img={img}
-        text={form.text}
-        handleChange={handleChange}
-        onChangeFiles={onChangeFileReader}
-      />
-      {/* 태그하기 */}
-      <PostTag title={"사람 태그하기"} />
-      <PostTag title={"위치 추가"} />
-      {/* 공유하기  */}
-      <PostShare title={"Facebook"} id={"check1"} />
-      <PostShare title={"Twitter"} id={"check2"} />
-      <PostShare title={"Tumbir"} id={"check3"} />
+      <div className="postEditer__wrap">
+        {/* 이미지 추가 */}
+        <PostForm
+          img={img}
+          text={form.text}
+          handleChange={handleChange}
+          onChangeFiles={onChangeFileReader}
+        />
+        {/* 태그하기 */}
+        <PostTag title={"사람 태그하기"} />
+        <PostTag title={"위치 추가"} />
+        {/* 공유하기  */}
+        <PostShare title={"Facebook"} id={"check1"} />
+        <PostShare title={"Twitter"} id={"check2"} />
+        <PostShare title={"Tumbir"} id={"check3"} />
+      </div>
     </div>
   );
 };

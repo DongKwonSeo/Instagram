@@ -6,7 +6,7 @@ import {
   // useLocation,
   // useParams,
 } from "react-router-dom";
-import ContentDetail from "./components/main/feed/comment/contentDetail";
+import ContentDetail from "./components/main/feed/contentDetail/contentDetail";
 // import PostEditer from "./components/post/postLIst/editer";
 import PostModify from "./components/post/postLIst/modify";
 import Index from "./pages";

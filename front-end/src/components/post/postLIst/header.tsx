@@ -9,15 +9,13 @@ interface Props {
 const PostHeader = ({ title, submitLabel, handleSubmit }: Props) => {
   return (
     <div className="postHeader">
-      <span className="postHeader__btn">
-        <Link to="/">
-          <i className="fas fa-chevron-left"></i>
-        </Link>
-      </span>
-      <h2>{title}</h2>
-      <span className="postHeader__submit" onClick={handleSubmit}>
+      <Link to="/" className="postHeader__prev">
+        <i className="fas fa-chevron-left"></i>
+      </Link>
+      <h2 className="postHeader__title">{title}</h2>
+      <button className="postHeader__submit" onClick={handleSubmit}>
         {submitLabel}
-      </span>
+      </button>
     </div>
   );
 };

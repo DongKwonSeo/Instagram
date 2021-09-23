@@ -5,7 +5,11 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { PARAM, FEEDITEM, COMMENT } from "../../../../interfaces/interface";
 import Modal from "../../../common/modal/modal";
+import CommentForm from "../comment/form";
+import CommentItem from "../comment/item";
+import FeedIcon from "../feedcontent/Icon";
 import User from "../feedItem/user";
+import DetailItem from "./item";
 
 const ContentDetail = () => {
   const [item, setItem] = useState<FEEDITEM>({
@@ -26,9 +30,11 @@ const ContentDetail = () => {
       },
     ],
   });
+  const [comments, setComments] = useState<COMMENT[]>(item.comments);
   const [modal, setmodal] = useState<boolean>(false);
   const param = useParams<PARAM>();
   const feedId = param.id;
+
   useQuery(
     "edit",
     async () => {
@@ -36,6 +42,7 @@ const ContentDetail = () => {
         `http://localhost:5000/api/content/${feedId}`
       );
       setItem(res.data.content);
+      setComments(res.data.content.comments);
     },
     {
       enabled: !!feedId,
@@ -45,6 +52,8 @@ const ContentDetail = () => {
     setmodal((state) => !state);
   };
 
+  const updateCommentList = async () => {};
+
   return (
     <>
       <section className="contentDetail ">
@@ -52,14 +61,43 @@ const ContentDetail = () => {
           <img className="contentDetail__img" src={item?.image} alt="" />
         </figure>
 
-        <article className="contentDetail__total">
+        <article className="contentDetail__total ">
           {/* user 이름 */}
+          <div className=" contentDetail__wrap">
+            <User item={item} toggleModal={toggleModal} />
+          </div>
 
-          <User item={item} toggleModal={toggleModal} />
-          {/*  */}
+          {/*user content   */}
+          <div className="contentDetail__item ">
+            <DetailItem item={item} toggleModal={toggleModal} />
+
+            {/* CommentItem 댓글 */}
+            <div className="contentDetail__list  ">
+              {comments.map((item) => {
+                return (
+                  <CommentItem
+                    comment={item}
+                    key={item.id}
+                    feedId={feedId}
+                    toggleModal={toggleModal}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          {/* Icon 좋아요  */}
+          <div className="contentDetail__icon">
+            <FeedIcon item={item} />
+          </div>
+
+          {/* Comment Form 댓글달기  */}
+          <div className="contentDetail__form">
+            <CommentForm item={item} updateCommentList={updateCommentList} />
+          </div>
         </article>
       </section>
       {modal && <Modal feedId={item.id} closeModal={toggleModal} />}
+      {}
     </>
   );
 };

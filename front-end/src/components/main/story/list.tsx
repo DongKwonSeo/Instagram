@@ -8,11 +8,13 @@ const StoryList = () => {
   const [list, setList] = useState<Story[]>(initStory);
 
   return (
-    <ul className="storyList padding">
-      {list.map((item, index) => {
-        return <StoryItem item={item} key={index} />;
-      })}
-    </ul>
+    <section className="storyList">
+      <ul className="storyList__list ">
+        {list.map((item, index) => {
+          return <StoryItem item={item} key={index} />;
+        })}
+      </ul>
+    </section>
   );
 };
 

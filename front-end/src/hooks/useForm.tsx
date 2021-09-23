@@ -1,10 +1,20 @@
 import React from "react";
 import { useState } from "react";
 
-const Useform = () => {
-  const [form, setForm] = useState({
-    text: "",
-  });
+interface userFormType {
+  <T>(initForm: T): {
+    handleChange: (
+      e:
+        | React.ChangeEvent<HTMLInputElement>
+        | React.ChangeEvent<HTMLTextAreaElement>
+    ) => void;
+    form: T;
+    setForm: (initForm: T) => void;
+  };
+}
+
+const Useform: userFormType = (initForm) => {
+  const [form, setForm] = useState(initForm);
 
   const handleChange = (
     e:

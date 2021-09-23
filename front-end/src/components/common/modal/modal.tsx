@@ -11,7 +11,7 @@ const Modal = ({ feedId, closeModal }: Props) => {
     <>
       <article className="modal" onClick={closeModal}>
         <div className="modal__box" onClick={(e) => e.stopPropagation()}>
-          <div className="modal__list container">
+          <div className="modal__list">
             <span className="modal__item">신고</span>
             <Link className="modal__item" to={`/post/${feedId}`}>
               수정
