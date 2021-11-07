@@ -4,8 +4,13 @@ const commentSchema = new mongoose.Schema(
   {
     content: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "contents",
+      refPath: "content_model",
       required: [true, "cotnent Id는 필수입니다."],
+    },
+    content_model: {
+      type: String,
+      required: true,
+      enum:["contents","comments"],
     },
     user_nickname: {
       type: String,
@@ -29,5 +34,10 @@ const commentSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
-
+commentSchema.virtual("replys", {
+  ref: "comments",
+  localField: "_id",
+  foreignField: "content",
+  justOne: false,
+});
 module.exports = mongoose.model("comments", commentSchema);

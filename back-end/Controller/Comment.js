@@ -18,6 +18,24 @@ exports.createComment = asyncHandler(async (req, res, next) => {
     user_nickname: user_nickname,
     comment_text: comment_text,
     content: content_id,
+    content_model:"contents",
+  });
+
+  res.status(200).json({
+    success: true,
+    comment,
+  });
+});
+exports.createDespComment = asyncHandler(async (req, res, next) => {
+  const { user_nickname, comment_text, content_id } = req.body;
+  if (!user_nickname || !comment_text || !content_id) {
+    return next(new ErrorResponse("Bad Param", 400));
+  }
+  const comment = await Comments.create({
+    user_nickname: user_nickname,
+    comment_text: comment_text,
+    content: content_id,
+    content_model:"comments",
   });
 
   res.status(200).json({
@@ -43,7 +61,7 @@ exports.getsComments = asyncHandler(async (req, res, next) => {
  */
 exports.getComment = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  const comment = await Comments.findById(id);
+  const comment = await Comments.findById(id).populate("comments");
   res.status(200).json({ success: true, comment: comment });
 });
 /**
