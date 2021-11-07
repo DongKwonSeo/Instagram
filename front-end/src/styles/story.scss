@@ -1,0 +1,94 @@
+// story
+.storyList {
+  margin: 20px 0;
+  &__list {
+    background: $white;
+    border: $border;
+    padding: $smallPadding 0;
+  }
+}
+
+// storyItem
+.storyItem {
+  text-align: center;
+  margin-right: 5px;
+  padding-left: 8px;
+  padding-top: 8px;
+  &__img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  &__name {
+    text-align: center;
+    margin-top: 8px;
+    font-size: $storyName;
+    color: $storyNameColor;
+    display: block;
+    text-overflow: ellipsis;
+    max-width: 70px;
+    min-width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  &__boredr {
+    position: absolute;
+    left: -5px;
+    top: -4px;
+    width: 66px;
+    height: 66px;
+    transition: all 0.3s;
+  }
+}
+.hello {
+  position: relative;
+  cursor: pointer;
+}
+
+.storyItem:last-child {
+  margin-right: 0;
+}
+
+.haha {
+  display: flex;
+}
+
+.arrowNext,
+.arrowPrev {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 25px;
+  height: 25px;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 0 10px white;
+  z-index: 9999;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 0 white;
+  }
+}
+
+.arrowNext {
+  right: 15px;
+  &__img {
+    width: 100%;
+  }
+}
+
+.arrowPrev {
+  left: 15px;
+  &__img {
+    width: 100%;
+  }
+}

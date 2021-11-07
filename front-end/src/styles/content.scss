@@ -1,0 +1,70 @@
+// contentHeader
+
+.feedIcon {
+  cursor: pointer;
+  position: relative;
+  &__modal {
+    background: #fff;
+    padding: 12px 16px;
+    width: calc(100% + 32px);
+    left: -16px;
+    right: 0;
+    top: -50px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    border-top: $border;
+    border-bottom: $border;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in forwards,
+      fadeIn 0.3s 2s ease-in forwards alternate-reverse;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  &__saveText {
+    font-size: 14px;
+  }
+  &__saveCheck {
+    font-size: 12px;
+    font-weight: bold;
+    color: #0095f6;
+  }
+  &__box svg {
+    margin-right: 16px;
+  }
+  &__box svg:last-child {
+    margin-right: 0;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// content
+.content {
+  padding: $smallPadding $container;
+}
+
+.contentItem {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &__user {
+    font-weight: $fontWeightBold;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  &__user:hover {
+    text-decoration: underline;
+  }
+}
