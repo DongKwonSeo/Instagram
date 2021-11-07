@@ -33,7 +33,15 @@ exports.createContent = asyncHandler(async (req, res, next) => {
  * @access : public
  */
 exports.GetsContent = asyncHandler(async (req, res, next) => {
-  const temp = await Contents.find().populate({ path: "comments" });
+  const temp = await Contents.find().populate(
+    {
+      path: "comments",
+      populate: {
+      path: "replys", populate: {
+      path:"replys"
+        },
+      },
+      }, );
 
   const contents = temp.map((content) => {
     content.image = `${process.env.IMG_SERVER}${content.image}`;
@@ -52,7 +60,11 @@ exports.GetsContent = asyncHandler(async (req, res, next) => {
  */
 exports.GetContent = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  const content = await Contents.findById(id).populate({ path: "comments" });
+  const content = await Contents.findById(id).populate({ path: "comments",
+        populate: { path: "replys" ,populate: {
+      path:"replys"
+    }},
+    });
 
   content.image = `${process.env.IMG_SERVER}${content.image}`;
   res.status(200).json({
