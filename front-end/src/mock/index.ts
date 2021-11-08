@@ -4,59 +4,47 @@ export const user = {
 
 export const initStory = [
   {
-    name: "hello",
-    src: "../imgs/feedimg.jpeg",
+    name: "instagram",
+    src: "../imgs/feedimg12.jpeg",
+  },
+  {
+    name: "mid.ssam",
+    src: "../imgs/feedimg2.jpeg",
+  },
+  {
+    name: "yanadoo_english",
+    src: "../imgs/feedimg3.jpeg",
   },
   {
     name: "cake.english",
-    src: "../storyItem.jpeg",
+    src: "../imgs/feedimg4.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "facebookopenarts",
+    src: "../imgs/feedimg5.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "apple",
+    src: "../imgs/feedimg6.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "chanel.beauty.korea",
+    src: "../imgs/feedimg7.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "louisvuitton",
+    src: "../imgs/feedimg8.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "dior",
+    src: "../imgs/feedimg9.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "nike",
+    src: "../imgs/feedimg10.jpeg",
   },
   {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
-  },
-  {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
-  },
-  {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
-  },
-  {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
-  },
-  {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
-  },
-  {
-    name: "cake.english",
-    src: "../storyItem.jpeg",
+    name: "originals_kr",
+    src: "../imgs/feedimg11.jpeg",
   },
 ];

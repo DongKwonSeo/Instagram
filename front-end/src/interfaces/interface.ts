@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Story {
   name: string;
   src: string;
@@ -24,4 +26,5 @@ export interface FEEDITEM {
   image: string;
   like: number;
   comments: [COMMENT];
+  children?: ReactNode;
 }

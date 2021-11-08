@@ -1,12 +1,11 @@
 import React from "react";
 import { COMMENT } from "../../../../interfaces/interface";
-import { Link } from "react-router-dom";
 import CommentItem from "./item";
 
 interface Props {
   commentList: [COMMENT];
   feedId: string;
-  toggleModal: () => void;
+  toggleModal: (type: string) => void;
 }
 
 const Comments = ({ commentList, feedId, toggleModal }: Props) => {
@@ -16,9 +15,12 @@ const Comments = ({ commentList, feedId, toggleModal }: Props) => {
     <div className="comment">
       <div>
         {commentList.length >= 3 && (
-          <Link to={`/commentList/${feedId}`} className="comment__total">
+          <span
+            onClick={() => toggleModal("detail")}
+            className="comment__total"
+          >
             댓글 {commentList.length}개 모두보기
-          </Link>
+          </span>
         )}
       </div>
 

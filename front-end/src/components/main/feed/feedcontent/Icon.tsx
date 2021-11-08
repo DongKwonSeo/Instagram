@@ -10,7 +10,6 @@ interface Props {
 const FeedIcon = ({ item }: Props) => {
   const [likeCount, setLikeCount] = useState<number>(item.like);
   const [onLike, setOnLike] = useState<boolean>(false);
-  console.log(likeCount, ": 123");
 
   // item.like 초기값을 전달해준다
   const onclikHandler = async (e: React.MouseEvent<SVGSVGElement>) => {

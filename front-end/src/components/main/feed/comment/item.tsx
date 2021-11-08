@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { COMMENT, PARAM } from "../../../../interfaces/interface";
 interface Props {
   comment: COMMENT;
   feedId: string;
-  toggleModal: () => void;
+  toggleModal: (modalId: string) => void;
 }
 
 const CommentItem = ({ comment, feedId, toggleModal }: Props) => {
@@ -27,17 +26,17 @@ const CommentItem = ({ comment, feedId, toggleModal }: Props) => {
             <li className="comment__desc">
               {/* content 이름  */}
 
-              <Link to={`/commentList/${feedId}`}>
-                <strong className="comment__user">
-                  {comment.user_nickname}
-                </strong>
-              </Link>
+              <strong className="comment__user">{comment.user_nickname}</strong>
+
               {/* content 내용 */}
               <span>{comment.comment_text}</span>
 
               {/* modal */}
               {param.id && (
-                <em className="comment__modal" onClick={toggleModal}>
+                <em
+                  className="comment__modal"
+                  onClick={() => toggleModal("feedoption")}
+                >
                   <svg
                     aria-label="옵션 더 보기"
                     className="_8-yf5 "

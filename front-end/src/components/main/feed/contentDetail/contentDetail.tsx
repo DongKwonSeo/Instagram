@@ -96,8 +96,7 @@ const ContentDetail = () => {
           </div>
         </article>
       </section>
-      {modal && <Modal feedId={item.id} closeModal={toggleModal} />}
-      {}
+      {modal && <Modal feedId={item.id} closeModal={toggleModal} children />}
     </>
   );
 };

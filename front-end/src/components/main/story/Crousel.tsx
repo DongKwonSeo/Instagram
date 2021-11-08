@@ -71,7 +71,8 @@ const StoyCrousel = ({ list, onClicked }: Props) => {
   return (
     <Slider {...settings}>
       {list.map((item, index) => (
-        <StoryItem item={item} key={index} onClicked={onClicked} />
+        <StoryItem item={item} key={index} />
+        // <StoryItem item={item} key={index} onClicked={onClicked} />
       ))}
     </Slider>
   );

@@ -1,28 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { ReactNode } from "react";
 
 interface Props {
-  feedId: string;
   closeModal: () => void;
+  children: ReactNode;
 }
 
-const Modal = ({ feedId, closeModal }: Props) => {
+const Modal = ({ closeModal, children }: Props) => {
   return (
-    <>
-      <article className="modal" onClick={closeModal}>
-        <div className="modal__box" onClick={(e) => e.stopPropagation()}>
-          <div className="modal__list">
-            <span className="modal__item">신고</span>
-            <Link className="modal__item" to={`/post/${feedId}`}>
-              수정
-            </Link>
-            <span className="modal__item" onClick={closeModal}>
-              취소
-            </span>
-          </div>
-        </div>
-      </article>
-    </>
+    <div className="modal" onClick={closeModal}>
+      {children}
+    </div>
   );
 };
 

@@ -7,8 +7,9 @@ interface Props {
 }
 const StoryItem = ({ item }: Props) => {
   const [isConfirmed, setConfirmed] = useState<boolean>(false);
+
   const onClicked = () => {
-    setConfirmed((state) => !state);
+    setConfirmed((state) => true);
   };
 
   return (
@@ -17,7 +18,7 @@ const StoryItem = ({ item }: Props) => {
         className={`${isConfirmed ? "hello" : "hello"}`}
         onClick={onClicked}
       >
-        <span>
+        <span onClick={onClicked}>
           <img
             className="storyItem__boredr"
             src={isConfirmed ? "../imgs/story2.png" : "../imgs/story1.png"}

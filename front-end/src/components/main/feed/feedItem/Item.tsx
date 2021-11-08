@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import Content from "../feedcontent/content";
-// import FeedCarousel from "./Carousel";
 import { FEEDITEM } from "../../../../interfaces/interface";
 import User from "./user";
-import Modal from "../../../common/modal/modal";
+import Detail from "../../../common/modal/detail";
+import FeedOption from "../../../common/modal/feedOption";
 
 interface Props {
   item: FEEDITEM;
+  children: ReactNode;
 }
 const FeedItem = ({ item }: Props) => {
   const [modal, setmodal] = useState<boolean>(false);
+  const [modalType, setModalType] = useState<string>("");
 
-  const toggleModal = () => {
+  const toggleModal = (type: string | null) => {
+    console.log(type);
     setmodal((state) => !state);
+    type && setModalType(type);
   };
 
   return (
     <>
       <div className="feedItem">
-        <User item={item} toggleModal={toggleModal} />
+        <User item={item} toggleModal={() => toggleModal("detail")} />
         {/* {data.length > 1 ? (
         <FeedCarousel />
         ) : ( */}
@@ -33,8 +37,14 @@ const FeedItem = ({ item }: Props) => {
         {/* )} */}
         <Content item={item} toggleModal={toggleModal} />
       </div>
+
       {/* modal  */}
-      {modal && <Modal feedId={item.id} closeModal={toggleModal} />}
+      {/* {modalType === "detail" && modal && (
+        <Detail feedId={item.id} closeModal={toggleModal} />
+      )}
+      {modalType === "feedOption" && modal && (
+        <FeedOption feedId={item.id} closeModal={toggleModal} />
+      )} */}
     </>
   );
 };

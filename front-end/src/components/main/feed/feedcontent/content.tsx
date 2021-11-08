@@ -8,20 +8,17 @@ import Comments from "../comment/comment";
 import axios from "axios";
 import { useState } from "react";
 import { FEEDITEM } from "../../../../interfaces/interface";
-// import Useform from "../../../../hooks/useForm";
-
-// import ContentHeader from "./Icon";
 
 interface Props {
   item: FEEDITEM;
-  toggleModal: () => void;
+  toggleModal: (type: string) => void;
 }
 
 const Content = ({ item, toggleModal }: Props) => {
   const [comments, setComments] = useState(item.comments);
   // const { form, handleChange, setForm } = Useform(initForm);
   // get 게시물 하나만 가지고 오기
-  
+
   const updateCommentList = async () => {
     const { data } = await axios.get(
       `http://localhost:5000/api/content/${item.id}`
