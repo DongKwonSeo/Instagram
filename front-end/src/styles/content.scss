@@ -37,7 +37,7 @@
     color: #0095f6;
   }
   &__box svg {
-    margin-right: 16px;
+    margin-right: 10px;
   }
   &__box svg:last-child {
     margin-right: 0;
@@ -57,8 +57,8 @@
 .contentItem {
   display: flex;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   &__user {
     font-weight: $fontWeightBold;
     margin-right: 5px;

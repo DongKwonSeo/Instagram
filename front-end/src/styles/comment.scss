@@ -1,0 +1,105 @@
+// comment
+.comment {
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  &__list {
+    flex: 1;
+  }
+  &__box:hover &__modal {
+    opacity: 0.5;
+  }
+  &__box:last-child {
+    margin-bottom: 0;
+  }
+  &__img {
+    width: 31px;
+    margin-right: 10px;
+    & img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  &__icon {
+    cursor: pointer;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+  &__user {
+    font-weight: $fontWeightBold;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  &__total {
+    color: $gray;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
+  &__user:hover {
+    text-decoration: underline;
+  }
+  &__modal {
+    // margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    background: #fff;
+    transition: opacity 0.5s;
+    // margin-top: 5px;
+    // padding-top: 5px;
+  }
+}
+// comments
+
+// commentInput
+.commentForm {
+  width: 100%;
+  padding: 0 $container;
+
+  border-top: $border;
+  &__wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__input {
+    width: 100%;
+    border: none;
+    padding: 10px 5px;
+  }
+  &__icon {
+    line-height: 12px;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__label {
+    margin: 0 16px;
+    flex: 1;
+    padding: 10px 0;
+  }
+  &__button {
+    opacity: 0.5;
+    cursor: pointer;
+    border: 0;
+    background: none;
+    color: #0095f6;
+    font-size: 14px;
+  }
+  &__buttons {
+    opacity: 1;
+    cursor: pointer;
+    border: 0;
+    background: none;
+    color: #0095f6;
+    font-size: 14px;
+    transition: opacity 0.1s ease-in;
+  }
+}

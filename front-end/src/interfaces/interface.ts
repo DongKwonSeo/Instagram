@@ -1,9 +1,12 @@
 import { ReactNode } from "react";
 
-export interface Story {
-  name: string;
-  src: string;
-}
+export type Story =
+  | {
+      id: number;
+      name: string;
+      src: string;
+    }
+  | undefined;
 
 export interface COMMENT {
   cratedAt: string;

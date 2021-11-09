@@ -4,7 +4,8 @@ import { Story } from "../../../interfaces/interface";
 import StoryItem from "./item";
 interface Props {
   list: Story[];
-  onClicked: (selectedId: number) => void;
+
+  onToggleConfirmState: (selectedId: number) => void;
 }
 
 function SamplePrevArrow({ buttonState, onClick }: any) {
@@ -39,7 +40,7 @@ function SampleNextArrow({ buttonState, onClick }: any) {
   );
 }
 
-const StoyCrousel = ({ list, onClicked }: Props) => {
+const StoyCrousel = ({ list, onToggleConfirmState }: Props) => {
   const [nextButtonState, setNextButtonState] = useState<boolean>(false);
   const [prevButtonState, setPrevButtonState] = useState<boolean>(false);
 
@@ -71,8 +72,11 @@ const StoyCrousel = ({ list, onClicked }: Props) => {
   return (
     <Slider {...settings}>
       {list.map((item, index) => (
-        <StoryItem item={item} key={index} />
-        // <StoryItem item={item} key={index} onClicked={onClicked} />
+        <StoryItem
+          item={item}
+          key={index}
+          onToggleConfirmState={onToggleConfirmState}
+        />
       ))}
     </Slider>
   );

@@ -1,24 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Story } from "../../../interfaces/interface";
 
 interface Props {
   item: Story;
+  onToggleConfirmState: (selectedId: number) => void;
 }
-const StoryItem = ({ item }: Props) => {
-  const [isConfirmed, setConfirmed] = useState<boolean>(false);
 
-  const onClicked = () => {
-    setConfirmed((state) => true);
+const StoryItem = ({ item, onToggleConfirmState }: Props) => {
+  const [isConfirmed, setConfirmed] = useState(false);
+
+  const isConfirmedHandler = () => {
+    if (!item) return;
+    setConfirmed(true);
+    onToggleConfirmState(item.id);
   };
-
+  if (!item) return <></>;
   return (
-    <li className="storyItem" onClick={onClicked}>
-      <figure
-        className={`${isConfirmed ? "hello" : "hello"}`}
-        onClick={onClicked}
-      >
-        <span onClick={onClicked}>
+    <li className="storyItem" onClick={isConfirmedHandler}>
+      <figure className="hello">
+        <span>
           <img
             className="storyItem__boredr"
             src={isConfirmed ? "../imgs/story2.png" : "../imgs/story1.png"}

@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import "./styles/style.scss";
 // package json
 import "@fortawesome/fontawesome-free/js/all.js";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 // import { ReactQueryDevtools } from "react-query/devtools";
 // react.app

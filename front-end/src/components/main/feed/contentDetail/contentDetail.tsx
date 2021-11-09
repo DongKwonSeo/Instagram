@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { PARAM, FEEDITEM, COMMENT } from "../../../../interfaces/interface";
-import Modal from "../../../common/modal/modal";
 import CommentForm from "../comment/form";
 import CommentItem from "../comment/item";
 import FeedIcon from "../feedcontent/Icon";
@@ -96,7 +95,6 @@ const ContentDetail = () => {
           </div>
         </article>
       </section>
-      {modal && <Modal feedId={item.id} closeModal={toggleModal} children />}
     </>
   );
 };
