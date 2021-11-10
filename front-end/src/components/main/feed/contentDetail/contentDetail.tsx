@@ -1,16 +1,18 @@
 import axios from "axios";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
-import { PARAM, FEEDITEM, COMMENT } from "../../../../interfaces/interface";
+import { FEEDITEM, COMMENT } from "../../../../interfaces/interface";
 import CommentForm from "../comment/form";
 import CommentItem from "../comment/item";
 import FeedIcon from "../feedcontent/Icon";
 import User from "../feedItem/user";
 import DetailItem from "./item";
+interface Props {
+  closeModal: (type: string) => void;
+  feedId: string;
+}
 
-const ContentDetail = () => {
+const ContentDetail = ({ closeModal, feedId }: Props) => {
   const [item, setItem] = useState<FEEDITEM>({
     id: "",
     user_nickname: "",
@@ -31,8 +33,6 @@ const ContentDetail = () => {
   });
   const [comments, setComments] = useState<COMMENT[]>(item.comments);
   const [modal, setmodal] = useState<boolean>(false);
-  const param = useParams<PARAM>();
-  const feedId = param.id;
 
   useQuery(
     "edit",
@@ -55,7 +55,7 @@ const ContentDetail = () => {
 
   return (
     <>
-      <section className="contentDetail ">
+      <section className="contentDetail " onClick={(e) => e.stopPropagation()}>
         <figure className="contentDetail__imgList">
           <img className="contentDetail__img" src={item?.image} alt="" />
         </figure>
@@ -77,8 +77,8 @@ const ContentDetail = () => {
                   <CommentItem
                     comment={item}
                     key={item.id}
-                    feedId={feedId}
                     toggleModal={toggleModal}
+                    feedId={feedId}
                   />
                 );
               })}

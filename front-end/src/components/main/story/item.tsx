@@ -7,12 +7,9 @@ interface Props {
 }
 
 const StoryItem = ({ item, onToggleConfirmState }: Props) => {
-  const [isConfirmed, setConfirmed] = useState(false);
-
   const isConfirmedHandler = () => {
-    if (!item) return;
-    setConfirmed(true);
-    onToggleConfirmState(item.id);
+    
+    onToggleConfirmState(item!.id);
   };
   if (!item) return <></>;
   return (
@@ -21,7 +18,7 @@ const StoryItem = ({ item, onToggleConfirmState }: Props) => {
         <span>
           <img
             className="storyItem__boredr"
-            src={isConfirmed ? "../imgs/story2.png" : "../imgs/story1.png"}
+            src={item.checked ? "../imgs/story2.png" : "../imgs/story1.png"}
             alt="테두리"
             width="56"
           />

@@ -3,7 +3,7 @@ import { FEEDITEM } from "../../../../interfaces/interface";
 
 interface Props {
   item: FEEDITEM;
-  toggleModal: () => void;
+  toggleModal: (type: string) => void;
 }
 const User = ({ item, toggleModal }: Props) => {
   return (
@@ -13,7 +13,7 @@ const User = ({ item, toggleModal }: Props) => {
       <div className="user__wrap">
         <span className="user__name">{item.user_nickname}</span>
         {/* user icon */}
-        <span onClick={toggleModal} className="user__icon">
+        <span onClick={() => toggleModal("feedOption")} className="user__icon">
           <svg
             aria-label="옵션 더 보기"
             className="_8-yf5 "

@@ -11,16 +11,25 @@ const StoryList = () => {
   const onToggleConfirmState = (selectedId: number) => {
     let selectedItem;
     // eslint-disable-next-line array-callback-return
-    list.map((item) => {
-      if (item?.id === selectedId) {
-        selectedItem = item;
-      }
-    });
+    // list.map((item) => {
+    //   if (item?.id === selectedId) {
+    //     selectedItem = item;
 
-    const filteredList = list.filter((item) => item?.id !== selectedId);
-    filteredList.push(selectedItem);
+    //   }
+    // });
+    // console.log(selectedItem);
+    // const filteredList = list.filter((item) => item?.id !== selectedId);
+    // filteredList.push(selectedItem);
+    const index = list.findIndex((e: Story) => e!.id === selectedId);
+    if (index !== -1) {
+      selectedItem = list[index];
+      selectedItem!.checked = true;
 
-    setList(filteredList);
+      list.splice(index, 1);
+      list.push(selectedItem);
+    }
+
+    setList([...list]);
   };
 
   return (

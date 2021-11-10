@@ -1,13 +1,17 @@
 import React from "react";
 import ContentDetail from "../../main/feed/contentDetail/contentDetail";
-// import Modal from "./modal";
+import Modal from "./modal";
 interface Props {
   feedId: string;
-  closeModal: () => void;
+  closeModal: (type: string) => void;
 }
 
 const Detail = ({ feedId, closeModal }: Props) => {
-  return <ContentDetail />;
+  return (
+    <Modal closeModal={() => closeModal("")}>
+      <ContentDetail closeModal={closeModal} feedId={feedId} />
+    </Modal>
+  );
 };
 
 export default Detail;

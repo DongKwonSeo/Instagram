@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
-import { COMMENT, PARAM } from "../../../../interfaces/interface";
+import { COMMENT } from "../../../../interfaces/interface";
 interface Props {
   comment: COMMENT;
   feedId: string;
   toggleModal: (modalId: string) => void;
 }
 
-const CommentItem = ({ comment, feedId, toggleModal }: Props) => {
+const CommentItem = ({ comment, toggleModal, feedId }: Props) => {
   const [onLike, setOnLike] = useState<boolean>(false);
-  const param = useParams<PARAM>();
   const onClickHandler = () => {
     setOnLike((state) => !state);
   };
@@ -17,7 +15,7 @@ const CommentItem = ({ comment, feedId, toggleModal }: Props) => {
     <>
       <div className="comment__box">
         <div className="comment__left">
-          {param.id && (
+          {true && (
             <p className="comment__img">
               <img src="../storyItem.jpeg" alt="userImg" />
             </p>
@@ -32,7 +30,7 @@ const CommentItem = ({ comment, feedId, toggleModal }: Props) => {
               <span>{comment.comment_text}</span>
 
               {/* modal */}
-              {param.id && (
+              {true && (
                 <em
                   className="comment__modal"
                   onClick={() => toggleModal("feedoption")}

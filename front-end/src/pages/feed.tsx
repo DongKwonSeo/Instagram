@@ -3,7 +3,6 @@ import FeedItem from "../components/main/feed/feedItem/Item";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { FEEDITEM } from "../interfaces/interface";
-import Slider from "react-slick";
 
 interface Props {
   item: FEEDITEM;
@@ -23,9 +22,7 @@ const Feed = ({ item }: Props) => {
   return (
     <article className="feedList ">
       {feedList
-        .map((item: FEEDITEM) => (
-          <FeedItem children item={item} key={item.id} />
-        ))
+        .map((item: FEEDITEM) => <FeedItem item={item} key={item.id} />)
         .reverse()}
     </article>
   );
