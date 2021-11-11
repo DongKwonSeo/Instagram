@@ -14,8 +14,7 @@ const FeedItem = ({ item }: Props) => {
 
   const toggleModal = (type: string | null) => {
     setmodal((state) => !state);
-    type && setModalType("type");
-    console.log(modalType);
+    type && setModalType(type);
   };
 
   return (
@@ -37,8 +36,8 @@ const FeedItem = ({ item }: Props) => {
       {/* {modalType === "detail" && modal && (
         <Detail feedId={item.id} closeModal={toggleModal} />
       )} */}
-      {modal && (
-        <Detail feedId={item.id} closeModal={() => toggleModal("detail")} />
+      {modalType === "detail" && modal && (
+        <Detail feedId={item.id} closeModal={toggleModal} />
       )}
 
       {modalType === "feedOption" && modal && (

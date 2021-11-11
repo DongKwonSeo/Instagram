@@ -79,6 +79,7 @@ const ContentDetail = ({ closeModal, feedId }: Props) => {
                     key={item.id}
                     toggleModal={toggleModal}
                     feedId={feedId}
+                    ismodal={true}
                   />
                 );
               })}

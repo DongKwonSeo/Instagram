@@ -27,6 +27,7 @@ const Comments = ({ commentList, feedId, toggleModal }: Props) => {
       <div className="comment__item">
         {previewList.map((item) => (
           <CommentItem
+            ismodal={false}
             comment={item}
             key={item.id}
             feedId={feedId}

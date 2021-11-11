@@ -64,22 +64,3 @@
     padding-bottom: $smallPadding;
   }
 }
-
-// contentHeader
-
-.feedIcon {
-  cursor: pointer;
-  &__box {
-    flex: 1;
-  }
-  &__box svg {
-    margin-right: 16px;
-  }
-  &__box svg:last-child {
-    margin-right: 0;
-  }
-
-  &__menu {
-    display: flex;
-  }
-}

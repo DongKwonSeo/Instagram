@@ -11,26 +11,20 @@
   // @mixin fade-in() {
   //   animation: fade-in 0.3s d;
   // }
+}
 
-  &__box {
-    overflow: hidden;
-    width: 350px;
-    border: 1px solid #dbdbdb;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: $white;
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    :first-child {
-      color: $red;
-    }
-  }
+.feedOption {
+  overflow: hidden;
+  width: 350px;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $white;
+  display: flex;
+  flex-direction: column;
 
   &__item {
     padding: 20px 0;
@@ -44,6 +38,9 @@
 
     &:hover {
       background-color: #eeeeee;
+    }
+    &:first-child {
+      color: $red;
     }
   }
 }

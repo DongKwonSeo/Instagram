@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Modal from "./modal";
 
 interface Props {
@@ -12,7 +13,9 @@ const FeedOption = ({ feedId, closeModal }: Props) => {
       <Modal closeModal={() => closeModal("")}>
         <div className="feedOption" onClick={(e) => e.stopPropagation()}>
           <span className="feedOption__item">신고</span>
-          <span className="feedOption__item">수정</span>
+          <Link className="feedOption__item" to={`/post/${feedId}`}>
+            <span>수정</span>
+          </Link>
           <span className="feedOption__item" onClick={() => closeModal("")}>
             취소
           </span>

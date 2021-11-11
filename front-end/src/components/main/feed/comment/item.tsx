@@ -4,9 +4,10 @@ interface Props {
   comment: COMMENT;
   feedId: string;
   toggleModal: (modalId: string) => void;
+  ismodal: boolean;
 }
 
-const CommentItem = ({ comment, toggleModal, feedId }: Props) => {
+const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
   const [onLike, setOnLike] = useState<boolean>(false);
   const onClickHandler = () => {
     setOnLike((state) => !state);
@@ -15,7 +16,7 @@ const CommentItem = ({ comment, toggleModal, feedId }: Props) => {
     <>
       <div className="comment__box">
         <div className="comment__left">
-          {true && (
+          {ismodal && (
             <p className="comment__img">
               <img src="../storyItem.jpeg" alt="userImg" />
             </p>
