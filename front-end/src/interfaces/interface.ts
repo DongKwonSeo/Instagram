@@ -15,6 +15,7 @@ export interface COMMENT {
   comment_text: string;
   content: string;
   id: string;
+  replys: [REPLY]| [];
 }
 
 export interface PARAM {
@@ -28,4 +29,10 @@ export interface FEEDITEM {
   image: string;
   like: number;
   comments: [COMMENT];
+}
+
+export interface REPLY {
+  id: string;
+  user_nickname: string;
+  comment_text: string;
 }

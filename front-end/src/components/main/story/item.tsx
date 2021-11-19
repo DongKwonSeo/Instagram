@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Story } from "../../../interfaces/interface";
 
 interface Props {
@@ -8,7 +8,6 @@ interface Props {
 
 const StoryItem = ({ item, onToggleConfirmState }: Props) => {
   const isConfirmedHandler = () => {
-    
     onToggleConfirmState(item!.id);
   };
   if (!item) return <></>;

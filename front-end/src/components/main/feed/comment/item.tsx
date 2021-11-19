@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import { COMMENT } from "../../../../interfaces/interface";
+import Reply from "./reply";
 interface Props {
   comment: COMMENT;
   feedId: string;
-  toggleModal: (modalId: string) => void;
+  toggleModal: (type: string) => void;
   ismodal: boolean;
 }
 
 const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
   const [onLike, setOnLike] = useState<boolean>(false);
+  const [replyCheck, setReplyCheck] = useState<boolean>(false);
+
   const onClickHandler = () => {
     setOnLike((state) => !state);
   };
+
+  const onReplyCheckHandler = () => {
+    setReplyCheck((state) => !state);
+  };
+
   return (
     <>
       <div className="comment__box">
@@ -31,46 +39,61 @@ const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
               <span>{comment.comment_text}</span>
 
               {/* modal */}
-              {true && (
-                <em
-                  className="comment__modal"
-                  onClick={() => toggleModal("feedoption")}
-                >
-                  <svg
-                    aria-label="옵션 더 보기"
-                    className="_8-yf5 "
-                    fill="#262626"
-                    height="16"
-                    role="img"
-                    viewBox="0 0 48 48"
-                    width="16"
+              {ismodal && (
+                <>
+                  <em
+                    className="comment__modal"
+                    onClick={() => toggleModal("feedOption")}
                   >
-                    <circle
-                      clipRule="evenodd"
-                      cx="8"
-                      cy="24"
-                      fillRule="evenodd"
-                      r="4.5"
-                    ></circle>
-                    <circle
-                      clipRule="evenodd"
-                      cx="24"
-                      cy="24"
-                      fillRule="evenodd"
-                      r="4.5"
-                    ></circle>
-                    <circle
-                      clipRule="evenodd"
-                      cx="40"
-                      cy="24"
-                      fillRule="evenodd"
-                      r="4.5"
-                    ></circle>
-                  </svg>
-                </em>
+                    <svg
+                      aria-label="옵션 더 보기"
+                      className="_8-yf5 "
+                      fill="#262626"
+                      height="16"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="16"
+                    >
+                      <circle
+                        clipRule="evenodd"
+                        cx="8"
+                        cy="24"
+                        fillRule="evenodd"
+                        r="4.5"
+                      ></circle>
+                      <circle
+                        clipRule="evenodd"
+                        cx="24"
+                        cy="24"
+                        fillRule="evenodd"
+                        r="4.5"
+                      ></circle>
+                      <circle
+                        clipRule="evenodd"
+                        cx="40"
+                        cy="24"
+                        fillRule="evenodd"
+                        r="4.5"
+                      ></circle>
+                    </svg>
+                  </em>
+                  <span>답글 달기</span>
+                </>
               )}
+              {/* Reply 답글 보기 , 답글 숨기기  */}
+              {ismodal && comment.replys.length ? (
+                replyCheck ? (
+                  <>
+                    <Reply replys={comment.replys} ismodal />
+                    <span onClick={onReplyCheckHandler}>답글 숨기기</span>{" "}
+                  </>
+                ) : (
+                  <span onClick={onReplyCheckHandler}>답글 보기</span>
+                )
+              ) : null}
             </li>
           </ul>
+          {/* {ismodal && <Reply />} */}
         </div>
 
         {/* 좋아요 Icon */}

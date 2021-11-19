@@ -13,7 +13,7 @@ const FeedItem = ({ item }: Props) => {
   const [modalType, setModalType] = useState<string>("");
 
   const toggleModal = (type: string | null) => {
-    setmodal((state) => !state);
+  setmodal(!!type);
     type && setModalType(type);
   };
 
@@ -37,7 +37,7 @@ const FeedItem = ({ item }: Props) => {
         <Detail feedId={item.id} closeModal={toggleModal} />
       )} */}
       {modalType === "detail" && modal && (
-        <Detail feedId={item.id} closeModal={toggleModal} />
+        <Detail feedId={item.id} toggleModal={toggleModal} />
       )}
 
       {modalType === "feedOption" && modal && (

@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from "react";
 interface Props {
-  closeModal: (type: string) => void;
+  closeModal: () => void;
   children?: ReactNode;
 }
 
@@ -17,9 +17,18 @@ const Modal = ({ closeModal, children }: Props) => {
       document.body.style.cssText = "";
       window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
     };
-  }, [closeModal]);
+  }, []);
+
+
   return (
-    <div className="modal" onClick={() => closeModal("")}>
+    <div
+      className="modal"
+      onClick={(e) => {
+        e.stopPropagation();
+        closeModal();
+        console.log("hhhhh");
+      }}
+    >
       {children}
     </div>
   );

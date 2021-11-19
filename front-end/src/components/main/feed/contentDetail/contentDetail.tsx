@@ -2,17 +2,18 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { FEEDITEM, COMMENT } from "../../../../interfaces/interface";
+import FeedOption from "../../../common/modal/feedOption";
 import CommentForm from "../comment/form";
 import CommentItem from "../comment/item";
 import FeedIcon from "../feedcontent/Icon";
 import User from "../feedItem/user";
 import DetailItem from "./item";
 interface Props {
-  closeModal: (type: string) => void;
+  toggleModal: (type: string) => void;
   feedId: string;
 }
 
-const ContentDetail = ({ closeModal, feedId }: Props) => {
+const ContentDetail = ({ feedId }: Props) => {
   const [item, setItem] = useState<FEEDITEM>({
     id: "",
     user_nickname: "",
@@ -28,11 +29,13 @@ const ContentDetail = ({ closeModal, feedId }: Props) => {
         comment_text: "",
         content: "",
         id: "",
+        replys: [],
       },
     ],
   });
+  const [modal, setModal] = useState<boolean>(false);
+  const [modalType, setModalType] = useState<string>("");
   const [comments, setComments] = useState<COMMENT[]>(item.comments);
-  const [modal, setmodal] = useState<boolean>(false);
 
   useQuery(
     "edit",
@@ -47,11 +50,13 @@ const ContentDetail = ({ closeModal, feedId }: Props) => {
       enabled: !!feedId,
     }
   );
-  const toggleModal = () => {
-    setmodal((state) => !state);
-  };
 
   const updateCommentList = async () => {};
+  
+  const toggleModal = (type: string) => {
+    setModal((state) => !state);
+    type && setModalType(type);
+  };
 
   return (
     <>
@@ -68,7 +73,7 @@ const ContentDetail = ({ closeModal, feedId }: Props) => {
 
           {/*user content   */}
           <div className="contentDetail__item ">
-            <DetailItem item={item} toggleModal={toggleModal} />
+            <DetailItem item={item} />
 
             {/* CommentItem 댓글 */}
             <div className="contentDetail__list  ">
@@ -89,13 +94,16 @@ const ContentDetail = ({ closeModal, feedId }: Props) => {
           <div className="contentDetail__icon">
             <FeedIcon item={item} />
           </div>
-
           {/* Comment Form 댓글달기  */}
           <div className="contentDetail__form">
             <CommentForm item={item} updateCommentList={updateCommentList} />
           </div>
         </article>
       </section>
+
+      {modalType === "feedOption" && modal && (
+        <FeedOption feedId={item.id} closeModal={toggleModal} />
+      )}
     </>
   );
 };

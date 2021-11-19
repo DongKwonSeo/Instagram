@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+// import { useQuery } from "react-query";
+// import axios from "axios";
+import { REPLY } from "../../../../interfaces/interface";
 
-const Reply = () => {
-  const profile = true;
+interface Props {
+  ismodal: boolean;
+  replys: REPLY[];
+}
+
+const Reply = ({ replys, ismodal }: Props) => {
+  // const [replyLists, setReplyLists] = useState<REPLY[]>();
+
   return (
     <div className="comment__box">
       <div className="comment__left">
-        {profile && (
+        {ismodal && (
           <p className="comment__img">
             <img src="../storyItem.jpeg" alt="userImg" />
           </p>
@@ -14,7 +23,7 @@ const Reply = () => {
           <li className="comment__desc">
             {/* content 이름  */}
 
-            <strong className="comment__user">유저이름</strong>
+            <strong className="comment__user">{}</strong>
             {/* <strong className="comment__user">{comment.user_nickname}</strong> */}
 
             {/* content 내용 */}

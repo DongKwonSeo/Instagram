@@ -3,14 +3,16 @@ import ContentDetail from "../../main/feed/contentDetail/contentDetail";
 import Modal from "./modal";
 interface Props {
   feedId: string;
-  closeModal: (type: string) => void;
+  toggleModal: (type: string) => void;
 }
 
-const Detail = ({ feedId, closeModal }: Props) => {
+const Detail = ({ feedId, toggleModal }: Props) => {
+
   return (
-    <Modal closeModal={() => closeModal("")}>
-      <ContentDetail closeModal={closeModal} feedId={feedId} />
+    <Modal closeModal={() => toggleModal("")}>
+      <ContentDetail toggleModal={toggleModal} feedId={feedId} />
     </Modal>
+    
   );
 };
 

@@ -3,7 +3,6 @@ import { FEEDITEM } from "../../../../interfaces/interface";
 
 interface Props {
   item: FEEDITEM;
-  toggleModal: () => void;
 }
 const DetailItem = ({ item }: Props) => {
   return (
