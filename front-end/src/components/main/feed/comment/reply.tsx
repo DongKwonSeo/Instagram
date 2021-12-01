@@ -1,16 +1,12 @@
-import React, { useState } from "react";
-// import { useQuery } from "react-query";
-// import axios from "axios";
+import React from "react";
 import { REPLY } from "../../../../interfaces/interface";
 
 interface Props {
   ismodal: boolean;
-  replys: REPLY[];
+  reply: REPLY;
 }
 
-const Reply = ({ replys, ismodal }: Props) => {
-  // const [replyLists, setReplyLists] = useState<REPLY[]>();
-
+const Reply = ({ reply, ismodal }: Props) => {
   return (
     <div className="comment__box">
       <div className="comment__left">
@@ -23,12 +19,12 @@ const Reply = ({ replys, ismodal }: Props) => {
           <li className="comment__desc">
             {/* content 이름  */}
 
-            <strong className="comment__user">{}</strong>
+            <strong className="comment__user">{reply.user_nickname}</strong>
             {/* <strong className="comment__user">{comment.user_nickname}</strong> */}
 
             {/* content 내용 */}
-            <span>댓글 내용</span>
-            {/* <span>{comment.comment_text}</span> */}
+            {/* <span>댓글 내용</span> */}
+            <span>{reply.comment_text}</span>
 
             {/* modal */}
             {/* {modalType === "commentDetail" && (

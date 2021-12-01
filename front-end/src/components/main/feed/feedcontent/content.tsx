@@ -26,6 +26,7 @@ const Content = ({ item, toggleModal }: Props) => {
     setComments(data.content.comments);
   };
 
+
   return (
     <>
       <div className="content">

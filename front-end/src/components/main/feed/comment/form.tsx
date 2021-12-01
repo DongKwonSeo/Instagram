@@ -19,8 +19,8 @@ const CommentForm = ({ item, updateCommentList }: Props) => {
         user_nickname: "인스타그램",
       };
       await axios.post("http://localhost:5000/api/comment", data);
-      await updateCommentList();
       await setComment("");
+      await updateCommentList();
     } catch (error) {
       console.log(error);
       alert("실패입니다");

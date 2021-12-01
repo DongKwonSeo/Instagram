@@ -53,6 +53,20 @@
     // margin-top: 5px;
     // padding-top: 5px;
   }
+  &__replyList {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #8e8e8e;
+    & li {
+      margin-right: 10px;
+    }
+    & li:last-child {
+      margin-right: 0;
+    }
+  }
 }
 // comments
 

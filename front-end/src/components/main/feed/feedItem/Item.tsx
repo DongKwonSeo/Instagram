@@ -13,7 +13,7 @@ const FeedItem = ({ item }: Props) => {
   const [modalType, setModalType] = useState<string>("");
 
   const toggleModal = (type: string | null) => {
-  setmodal(!!type);
+    setmodal(!!type);
     type && setModalType(type);
   };
 

@@ -5,10 +5,17 @@ interface Props {
   comment: COMMENT;
   feedId: string;
   toggleModal: (type: string) => void;
+  // userTagHandler: (nickName: string) => void;
   ismodal: boolean;
 }
 
-const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
+const CommentItem = ({
+  comment,
+  toggleModal,
+  feedId,
+  ismodal,
+}: // userTagHandler,
+Props) => {
   const [onLike, setOnLike] = useState<boolean>(false);
   const [replyCheck, setReplyCheck] = useState<boolean>(false);
 
@@ -18,6 +25,9 @@ const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
 
   const onReplyCheckHandler = () => {
     setReplyCheck((state) => !state);
+  };
+  const userTagNameHandler = () => {
+    // userTagHandler();
   };
 
   return (
@@ -32,12 +42,11 @@ const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
           <ul className="comment__list">
             <li className="comment__desc">
               {/* content 이름  */}
-
-              <strong className="comment__user">{comment.user_nickname}</strong>
-
+              <strong className="comment__user" onClick={userTagNameHandler}>
+                {comment.user_nickname}
+              </strong>
               {/* content 내용 */}
               <span>{comment.comment_text}</span>
-
               {/* modal */}
               {ismodal && (
                 <>
@@ -77,15 +86,24 @@ const CommentItem = ({ comment, toggleModal, feedId, ismodal }: Props) => {
                       ></circle>
                     </svg>
                   </em>
-                  <span>답글 달기</span>
+                  <div className="comment__reply">
+                    <ul className="comment__replyList">
+                      <li>시간</li>
+                      <li>좋아요</li>
+                      <li>답글 달기</li>
+                    </ul>
+                  </div>
                 </>
               )}
               {/* Reply 답글 보기 , 답글 숨기기  */}
               {ismodal && comment.replys.length ? (
                 replyCheck ? (
                   <>
-                    <Reply replys={comment.replys} ismodal />
-                    <span onClick={onReplyCheckHandler}>답글 숨기기</span>{" "}
+                    {comment.replys.map((reply) => (
+                      <Reply reply={reply} key={reply.id} ismodal />
+                    ))}
+
+                    <span onClick={onReplyCheckHandler}>답글 숨기기</span>
                   </>
                 ) : (
                   <span onClick={onReplyCheckHandler}>답글 보기</span>

@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState } from "react";
+import axios from "axios";
 import { useQuery } from "react-query";
 import { FEEDITEM, COMMENT } from "../../../../interfaces/interface";
 import FeedOption from "../../../common/modal/feedOption";
@@ -51,8 +51,13 @@ const ContentDetail = ({ feedId }: Props) => {
     }
   );
 
-  const updateCommentList = async () => {};
-  
+  const updateCommentList = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/api/content/${item.id}`
+    );
+    setComments(data.content.comments);
+  };
+
   const toggleModal = (type: string) => {
     setModal((state) => !state);
     type && setModalType(type);
