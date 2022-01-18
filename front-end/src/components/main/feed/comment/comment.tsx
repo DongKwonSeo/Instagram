@@ -9,11 +9,7 @@ interface Props {
   toggleModal: (type: string) => void;
 }
 
-const Comments = ({
-  commentList,
-  feedId,
-  toggleModal,
-}: Props) => {
+const Comments = ({ commentList, feedId, toggleModal }: Props) => {
   const previewList = commentList.slice(-3);
 
   return (

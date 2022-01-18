@@ -1,22 +1,32 @@
 import { useState } from "react";
 import axios from "axios";
 import { FEEDITEM } from "../../../../interfaces/interface";
+import Useform from "../../../../hooks/useForm";
 
 interface Props {
   item: FEEDITEM;
   updateCommentList: () => void;
   // comment?: Comment;
 }
-
+interface PostInput {
+  comment: string;
+}
+const initForm: PostInput = {
+  // user_nickname: user.name,
+  comment: "",
+  // img: "",
+};
+// dddd
 const CommentForm = ({ item, updateCommentList }: Props) => {
   const [comment, setComment] = useState<string>("");
+  const { form, handleChange, setForm } = Useform(initForm);
 
   const onSumnit = async () => {
     try {
       const data = {
         content_id: item.id,
-        comment_text: comment,
-        user_nickname: "인스타그램",
+        comment_text: form.comment,
+        user_nickname: "바나나",
       };
       await axios.post("http://localhost:5000/api/comment", data);
       await setComment("");
@@ -27,9 +37,9 @@ const CommentForm = ({ item, updateCommentList }: Props) => {
     }
   };
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setComment(e.target.value);
-  };
+  // const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setComment(e.target.value);
+  // };
 
   return (
     <div className="commentForm ">
@@ -56,9 +66,10 @@ const CommentForm = ({ item, updateCommentList }: Props) => {
             <input
               className="commentForm__input"
               type="text"
+              name="comment"
               placeholder="댓글 달기 .."
-              value={comment}
-              onChange={onChangeHandler}
+              value={form.comment}
+              onChange={handleChange}
             />
           </label>
           <button

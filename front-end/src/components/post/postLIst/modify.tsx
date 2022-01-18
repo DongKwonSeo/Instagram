@@ -79,7 +79,6 @@ const PostModify = () => {
 
       // Router History
       history.push("/");
-      
     } catch (error) {
       console.log(error);
       alert("실패하였습니다");
