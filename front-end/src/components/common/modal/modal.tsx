@@ -2,7 +2,6 @@ import React, { ReactNode, useEffect } from "react";
 interface Props {
   closeModal: () => void;
   children?: ReactNode;
-  
 }
 
 const Modal = ({ closeModal, children }: Props) => {

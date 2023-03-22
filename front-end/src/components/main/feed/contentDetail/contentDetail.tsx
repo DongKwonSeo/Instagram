@@ -8,6 +8,7 @@ import CommentItem from "../comment/item";
 import FeedIcon from "../feedcontent/Icon";
 import User from "../feedItem/user";
 import DetailItem from "./item";
+
 interface Props {
   toggleModal: (type: string) => void;
   feedId: string;

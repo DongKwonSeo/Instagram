@@ -18,7 +18,7 @@ exports.createComment = asyncHandler(async (req, res, next) => {
     user_nickname: user_nickname,
     comment_text: comment_text,
     content: content_id,
-    content_model:"contents",
+    content_model: "contents",
   });
 
   res.status(200).json({
@@ -35,7 +35,7 @@ exports.createDespComment = asyncHandler(async (req, res, next) => {
     user_nickname: user_nickname,
     comment_text: comment_text,
     content: content_id,
-    content_model:"comments",
+    content_model: "comments",
   });
 
   res.status(200).json({

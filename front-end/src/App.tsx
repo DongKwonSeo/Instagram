@@ -1,11 +1,5 @@
 import React, { FC } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  // useLocation,
-  // useParams,
-} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ContentDetail from "./components/main/feed/contentDetail/contentDetail";
 // import PostEditer from "./components/post/postLIst/editer";
 import PostModify from "./components/post/postLIst/modify";
@@ -33,9 +27,6 @@ const App: FC = () => {
                 key={item.path}
               />
             ))}
-            {/* <Route exact path="/" component={Index} />
-            <Route exact path="/post" component={Post} />
-            <Route exact path="/post/:id" component={Post} /> */}
           </div>
         </>
       </Switch>
